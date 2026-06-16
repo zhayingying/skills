@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<title>可视化 HTML 报告 · 主题选择器</title>
+<link rel="stylesheet" href="../engines/token-report/styles/theme-fonts.css">
+<link rel="stylesheet" href="styles/theme-previews.css">
+<link rel="stylesheet" href="styles/switcher.css">
+<script src="scripts/theme-manifest.js"></script>
+<script defer src="scripts/theme-switcher.js"></script>
+</head>
+<body>
+  <main class="theme-shell">
+    <aside class="theme-sidebar" aria-label="报告主题列表">
+      <header class="sidebar-head">
+        <div>
+          <p class="kicker">VISUAL HTML REPORT</p>
+          <h1>选择报告风格</h1>
+        </div>
+        <p class="sidebar-copy">左侧缩略图是 4:3 快照；点选后，右侧立即切换完整 60 章节报告主题。</p>
+      </header>
+
+      <div class="theme-actions">
+        <label class="search-box">
+          <span>筛选</span>
+          <input id="themeSearch" type="search" placeholder="输入风格名 / 气质">
+        </label>
+        <select id="modeFilter" aria-label="按模式筛选">
+          <option value="all">全部模式</option>
+          <option value="light">明亮</option>
+          <option value="dark">暗色</option>
+          <option value="textured">纹理</option>
+        </select>
+      </div>
+
+      <section id="themeList" class="theme-list" aria-label="报告主题缩略图"></section>
+    </aside>
+
+    <section class="preview-stage" aria-label="完整报告预览">
+      <header class="preview-toolbar">
+        <div>
+          <p class="kicker" id="activeMode">明亮</p>
+          <h2 id="activeName">编辑纸刊</h2>
+          <p id="activeVibe">NYT / FT 数据新闻 · 温暖纸张 · 朱砂赭石森林靛蓝</p>
+        </div>
+        <div class="toolbar-actions">
+          <a id="openReport" class="ghost-btn" href="report.html?theme=editorial-paper" target="_blank" rel="noreferrer">打开全文</a>
+        </div>
+      </header>
+
+      <div class="preview-frame-wrap">
+        <iframe id="reportFrame" title="完整可视化 HTML 报告预览" src="report.html?theme=editorial-paper"></iframe>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

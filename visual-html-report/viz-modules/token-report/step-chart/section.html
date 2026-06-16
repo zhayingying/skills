@@ -1,0 +1,53 @@
+<section>
+  <div class="section-num">§ 44 · 阶跃</div>
+  <h2 class="section-title">阶梯图：<em>Claude Code 版本里程碑</em></h2>
+  <p class="section-desc">和 §12 折线图最大区别：阶跃图明确告诉读者"这个值是一段时间内保持稳定的"。适合显示版本号、订阅价格、功能开关这类离散状态。</p>
+  
+  <div class="svg-card">
+    <svg viewBox="0 0 1000 360" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Step chart of Claude Code version releases">
+      <line x1="80" y1="300" x2="960" y2="300" stroke="#14110f" stroke-width="1"/>
+      <line x1="80" y1="40" x2="80" y2="300" stroke="#14110f" stroke-width="1"/>
+      <g font-family="JetBrains Mono" font-size="10" fill="#6b6058">
+        <text x="70" y="304" text-anchor="end">v1.0</text>
+        <text x="70" y="245" text-anchor="end">v1.5</text>
+        <line x1="76" y1="241" x2="80" y2="241" stroke="#14110f"/>
+        <text x="70" y="185" text-anchor="end">v2.0</text>
+        <line x1="76" y1="181" x2="80" y2="181" stroke="#14110f"/>
+        <text x="70" y="125" text-anchor="end">v2.5</text>
+        <line x1="76" y1="121" x2="80" y2="121" stroke="#14110f"/>
+        <text x="70" y="65" text-anchor="end">v3.0</text>
+        <line x1="76" y1="61" x2="80" y2="61" stroke="#14110f"/>
+      </g>
+      <g font-family="JetBrains Mono" font-size="10" fill="#6b6058">
+        <text x="120" y="320" text-anchor="middle">2025.2</text>
+        <text x="240" y="320" text-anchor="middle">2025.5</text>
+        <text x="400" y="320" text-anchor="middle">2025.9</text>
+        <text x="560" y="320" text-anchor="middle">2025.11</text>
+        <text x="720" y="320" text-anchor="middle">2026.2</text>
+        <text x="880" y="320" text-anchor="middle">2026.5</text>
+      </g>
+      <!-- Step lines -->
+      <g fill="none" stroke="#2d4a7c" stroke-width="2.5">
+        <polyline points="120,300 240,300 240,241 400,241 400,181 560,181 560,121 720,121 720,61 940,61"/>
+      </g>
+      <!-- Dots at steps -->
+      <g fill="#2d4a7c">
+        <circle cx="120" cy="300" r="5"/>
+        <circle cx="240" cy="241" r="5"/>
+        <circle cx="400" cy="181" r="5"/>
+        <circle cx="560" cy="121" r="5"/>
+        <circle cx="720" cy="61" r="5"/>
+      </g>
+      <!-- Annotations -->
+      <g font-family="Source Serif 4" font-size="11" fill="#14110f">
+        <text x="124" y="288" font-style="italic">v1.0 · 初版发布</text>
+        <text x="244" y="232" font-style="italic">v1.5 · 加入 MCP</text>
+        <text x="404" y="172" font-style="italic">v2.0 · Plan/Act</text>
+        <text x="564" y="112" font-style="italic">v2.5 · Subagent</text>
+        <text x="724" y="52" font-style="italic">v3.0 · Skills</text>
+      </g>
+      <!-- Title -->
+      <text x="60" y="22" font-family="JetBrains Mono" font-size="10" fill="#6b6058" letter-spacing="0.1em">CLAUDE CODE · 主要版本节点</text>
+    </svg>
+  </div>
+</section>

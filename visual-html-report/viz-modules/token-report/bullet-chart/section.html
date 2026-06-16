@@ -1,0 +1,85 @@
+<section>
+  <div class="section-num">§ 21 · vs 基准</div>
+  <h2 class="section-title">子弹图：<em>SWE-bench Verified</em></h2>
+  <p class="section-desc">每根条 = 一个工具/模型组合在 SWE-bench 上的得分。背景灰带是基准区间（50% / 70%），垂直黑线是 80% 的"卓越线"。</p>
+  
+  <div class="viz-card">
+    <div class="ranges">
+      <div class="range-row">
+        <div class="rname">Claude Code + Opus 4.7</div>
+        <div class="rbar">
+          <div class="rseg" style="background:rgba(20,17,15,0.08);left:0;width:50%"></div>
+          <div class="rseg" style="background:rgba(20,17,15,0.13);left:50%;width:20%"></div>
+          <div class="rseg" style="background:#3f6b3a;left:0;width:80.9%;height:60%;top:20%"></div>
+          <div style="position:absolute;left:80%;top:-2px;width:1.5px;height:12px;background:#14110f"></div>
+        </div>
+        <div class="rval">80.9%</div>
+      </div>
+      <div class="range-row">
+        <div class="rname">Codex + GPT-5.5</div>
+        <div class="rbar">
+          <div class="rseg" style="background:rgba(20,17,15,0.08);left:0;width:50%"></div>
+          <div class="rseg" style="background:rgba(20,17,15,0.13);left:50%;width:20%"></div>
+          <div class="rseg" style="background:#3f6b3a;left:0;width:78.4%;height:60%;top:20%"></div>
+          <div style="position:absolute;left:80%;top:-2px;width:1.5px;height:12px;background:#14110f"></div>
+        </div>
+        <div class="rval">78.4%</div>
+      </div>
+      <div class="range-row">
+        <div class="rname">Antigravity (Windsurf)</div>
+        <div class="rbar">
+          <div class="rseg" style="background:rgba(20,17,15,0.08);left:0;width:50%"></div>
+          <div class="rseg" style="background:rgba(20,17,15,0.13);left:50%;width:20%"></div>
+          <div class="rseg" style="background:#3f6b3a;left:0;width:76.2%;height:60%;top:20%"></div>
+          <div style="position:absolute;left:80%;top:-2px;width:1.5px;height:12px;background:#14110f"></div>
+        </div>
+        <div class="rval">76.2%</div>
+      </div>
+      <div class="range-row">
+        <div class="rname">OpenHands + Sonnet 4.5</div>
+        <div class="rbar">
+          <div class="rseg" style="background:rgba(20,17,15,0.08);left:0;width:50%"></div>
+          <div class="rseg" style="background:rgba(20,17,15,0.13);left:50%;width:20%"></div>
+          <div class="rseg" style="background:#c89a47;left:0;width:72%;height:60%;top:20%"></div>
+          <div style="position:absolute;left:80%;top:-2px;width:1.5px;height:12px;background:#14110f"></div>
+        </div>
+        <div class="rval">72.0%</div>
+      </div>
+      <div class="range-row">
+        <div class="rname">mini-SWE-agent + GPT-5</div>
+        <div class="rbar">
+          <div class="rseg" style="background:rgba(20,17,15,0.08);left:0;width:50%"></div>
+          <div class="rseg" style="background:rgba(20,17,15,0.13);left:50%;width:20%"></div>
+          <div class="rseg" style="background:#c89a47;left:0;width:74%;height:60%;top:20%"></div>
+          <div style="position:absolute;left:80%;top:-2px;width:1.5px;height:12px;background:#14110f"></div>
+        </div>
+        <div class="rval">74.0%</div>
+      </div>
+      <div class="range-row">
+        <div class="rname">Aider + o3-pro</div>
+        <div class="rbar">
+          <div class="rseg" style="background:rgba(20,17,15,0.08);left:0;width:50%"></div>
+          <div class="rseg" style="background:rgba(20,17,15,0.13);left:50%;width:20%"></div>
+          <div class="rseg" style="background:#c89a47;left:0;width:69%;height:60%;top:20%"></div>
+          <div style="position:absolute;left:80%;top:-2px;width:1.5px;height:12px;background:#14110f"></div>
+        </div>
+        <div class="rval">69.0%</div>
+      </div>
+      <div class="range-row">
+        <div class="rname">Qwen Code + Qwen3-Coder</div>
+        <div class="rbar">
+          <div class="rseg" style="background:rgba(20,17,15,0.08);left:0;width:50%"></div>
+          <div class="rseg" style="background:rgba(20,17,15,0.13);left:50%;width:20%"></div>
+          <div class="rseg" style="background:#c89a47;left:0;width:67%;height:60%;top:20%"></div>
+          <div style="position:absolute;left:80%;top:-2px;width:1.5px;height:12px;background:#14110f"></div>
+        </div>
+        <div class="rval">67.0%</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:24px;margin-top:20px;padding-top:16px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:11px;color:var(--ink-mute)">
+      <span><span style="display:inline-block;width:12px;height:8px;background:rgba(20,17,15,0.08);vertical-align:1px"></span> &lt;50% 基线</span>
+      <span><span style="display:inline-block;width:12px;height:8px;background:rgba(20,17,15,0.13);vertical-align:1px"></span> 50–70% 合格</span>
+      <span><span style="display:inline-block;width:2px;height:10px;background:#14110f;vertical-align:1px"></span> 80% 卓越线</span>
+    </div>
+  </div>
+</section>

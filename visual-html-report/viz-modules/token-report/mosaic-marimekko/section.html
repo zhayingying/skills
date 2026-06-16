@@ -1,0 +1,63 @@
+<section>
+  <div class="section-num">§ 24 · 二维分类</div>
+  <h2 class="section-title">Marimekko：<em>语言 × 维护方</em></h2>
+  <p class="section-desc">每个格子的<strong>宽</strong>代表该语言占多少项目，<strong>高</strong>代表该语言里特定维护方占多少。TypeScript 几乎被独立团队和大厂瓜分；Python 仍是研究和学术圈主场；Rust/Go 几乎清一色独立团队。</p>
+  
+  <div class="svg-card">
+    <svg viewBox="0 0 800 420" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Marimekko chart of language by vendor distribution">
+      <!-- Total 18 projects. Widths proportional to language count, heights to vendor split -->
+      <!-- TS: 8 (44%), Python: 4 (22%), Rust: 3 (17%), Go: 2 (11%), Mixed: 1 (6%) -->
+      <!-- Inside each language: counts by vendor (bigtech/indie/foundation/sunset) -->
+      
+      <!-- TypeScript column (8 projects, width 320px starting at x=40) -->
+      <!-- bigtech: 3 (Claude, Gemini, Qwen) → 37.5% height -->
+      <rect x="40" y="40" width="320" height="135" fill="#2d4a7c"/>
+      <text x="200" y="100" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="16" fill="#fbf8f1">大厂 · 3</text>
+      <text x="200" y="120" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#fbf8f1" opacity="0.85">Claude Code · Gemini · Qwen</text>
+      <!-- indie: 4 (Cline, Continue, Kilo, bolt.diy) → 50% -->
+      <rect x="40" y="175" width="320" height="180" fill="#3f6b3a"/>
+      <text x="200" y="250" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="18" fill="#fbf8f1">独立 · 4</text>
+      <text x="200" y="272" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#fbf8f1" opacity="0.85">Cline · Continue · Kilo · bolt.diy</text>
+      <!-- sunset: 1 (Roo) → 12.5% -->
+      <rect x="40" y="355" width="320" height="45" fill="#c84630"/>
+      <text x="200" y="382" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#fbf8f1">停服 · 1 · Roo Code</text>
+      
+      <!-- Python column (4 projects, width 160px, x=360) -->
+      <!-- indie: 4 (OpenHands, OpenInt, Aider, SWE-agent) → 100% -->
+      <rect x="362" y="40" width="160" height="360" fill="#3f6b3a"/>
+      <text x="442" y="200" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="16" fill="#fbf8f1">独立 · 4</text>
+      <text x="442" y="222" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#fbf8f1" opacity="0.85">OpenHands · Aider</text>
+      <text x="442" y="238" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#fbf8f1" opacity="0.85">Open Int. · SWE-agent</text>
+      
+      <!-- Rust column (3 projects, width 120px, x=524) -->
+      <!-- bigtech: 1 (Codex) → 33% -->
+      <rect x="524" y="40" width="120" height="120" fill="#2d4a7c"/>
+      <text x="584" y="100" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#fbf8f1">Codex · 1</text>
+      <!-- foundation: 1 (Goose) → 33% -->
+      <rect x="524" y="160" width="120" height="120" fill="#a05a32"/>
+      <text x="584" y="220" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#fbf8f1">Goose · 1</text>
+      <!-- indie: 1 (Tabby) → 33% -->
+      <rect x="524" y="280" width="120" height="120" fill="#3f6b3a"/>
+      <text x="584" y="340" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#fbf8f1">Tabby · 1</text>
+      
+      <!-- Go column (2 projects, width 80px, x=646) -->
+      <!-- indie: 2 (Crush, Plandex) → 100% -->
+      <rect x="646" y="40" width="80" height="360" fill="#3f6b3a"/>
+      <text x="686" y="190" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#fbf8f1">Crush</text>
+      <text x="686" y="220" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#fbf8f1">Plandex</text>
+      
+      <!-- Mixed column (1 project, width 30px, x=728) -->
+      <rect x="728" y="40" width="32" height="360" fill="#3f6b3a"/>
+      <text x="744" y="200" text-anchor="middle" font-family="IBM Plex Sans" font-size="9" fill="#fbf8f1" transform="rotate(-90 744 200)">OpenCode</text>
+      
+      <!-- Bottom labels -->
+      <g font-family="JetBrains Mono" font-size="11" fill="#14110f" font-weight="500">
+        <text x="200" y="416" text-anchor="middle">TypeScript · 44%</text>
+        <text x="442" y="416" text-anchor="middle">Python · 22%</text>
+        <text x="584" y="416" text-anchor="middle">Rust · 17%</text>
+        <text x="686" y="416" text-anchor="middle">Go · 11%</text>
+        <text x="744" y="416" text-anchor="middle" font-size="9">混合 6%</text>
+      </g>
+    </svg>
+  </div>
+</section>

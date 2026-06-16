@@ -1,0 +1,4 @@
+interface:
+  display_name: "visual-html-report"
+  short_description: "把调研材料生成可维护的可视化 HTML 报告源码包"
+  default_prompt: "Use $visual-html-report to turn prepared research material into a styled, modular visual HTML report package."

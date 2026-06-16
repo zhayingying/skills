@@ -1,0 +1,82 @@
+<section>
+  <div class="section-num">§ 41 · 圆环关系</div>
+  <h2 class="section-title">和弦图：<em>工具之间的"血亲度"</em></h2>
+  <p class="section-desc">8 个主力项目沿圆环排开，每条彩带 = 两者间"共享某重要特性的数量"（MCP 支持、Plan/Act 模式、本地模型、子代理、桌面 GUI 等）。彩带越粗 = 共享越多。Claude Code、OpenCode、Cline 三者明显"血缘最近"。</p>
+  
+  <div class="svg-card">
+    <svg viewBox="0 0 600 600" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chord diagram of feature sharing between 8 coding tools">
+      <!-- 8 tools at 8 positions around circle, r=240, center (300,300) -->
+      <!-- Positions: 0°, 45°, 90°, 135°, 180°, 225°, 270°, 315° -->
+      <!-- Position 0 (right): OpenCode at (540, 300) -->
+      <!-- Position 45 (top-right): Claude Code at (470, 130) -->
+      <!-- Position 90 (top): Gemini CLI at (300, 60) -->
+      <!-- Position 135 (top-left): Codex at (130, 130) -->
+      <!-- Position 180 (left): Cline at (60, 300) -->
+      <!-- Position 225 (bot-left): Aider at (130, 470) -->
+      <!-- Position 270 (bot): OpenHands at (300, 540) -->
+      <!-- Position 315 (bot-right): Goose at (470, 470) -->
+      
+      <!-- Outer arc segments (tool nodes as colored arcs) -->
+      <g>
+        <!-- OpenCode (0°) -->
+        <path d="M 528,267 A 240,240 0 0 1 528,333" stroke="#c84630" stroke-width="14" fill="none"/>
+        <text x="555" y="304" font-family="Source Serif 4" font-weight="600" font-size="13" fill="#14110f">OpenCode</text>
+        <!-- Claude Code (45°) -->
+        <path d="M 482,142 A 240,240 0 0 1 506,165" stroke="#2d4a7c" stroke-width="14" fill="none"/>
+        <text x="510" y="138" font-family="Source Serif 4" font-weight="600" font-size="13" fill="#14110f">Claude</text>
+        <!-- Gemini (90°) -->
+        <path d="M 267,72 A 240,240 0 0 1 333,72" stroke="#2d4a7c" stroke-width="14" fill="none"/>
+        <text x="300" y="50" font-family="Source Serif 4" font-weight="600" font-size="13" fill="#14110f" text-anchor="middle">Gemini</text>
+        <!-- Codex (135°) -->
+        <path d="M 94,165 A 240,240 0 0 1 118,142" stroke="#2d4a7c" stroke-width="14" fill="none"/>
+        <text x="90" y="138" font-family="Source Serif 4" font-weight="600" font-size="13" fill="#14110f" text-anchor="end">Codex</text>
+        <!-- Cline (180°) -->
+        <path d="M 72,267 A 240,240 0 0 0 72,333" stroke="#3f6b3a" stroke-width="14" fill="none"/>
+        <text x="45" y="304" font-family="Source Serif 4" font-weight="600" font-size="13" fill="#14110f" text-anchor="end">Cline</text>
+        <!-- Aider (225°) -->
+        <path d="M 118,458 A 240,240 0 0 0 94,435" stroke="#3f6b3a" stroke-width="14" fill="none"/>
+        <text x="90" y="478" font-family="Source Serif 4" font-weight="600" font-size="13" fill="#14110f" text-anchor="end">Aider</text>
+        <!-- OpenHands (270°) -->
+        <path d="M 267,528 A 240,240 0 0 0 333,528" stroke="#3f6b3a" stroke-width="14" fill="none"/>
+        <text x="300" y="558" font-family="Source Serif 4" font-weight="600" font-size="13" fill="#14110f" text-anchor="middle">OpenHands</text>
+        <!-- Goose (315°) -->
+        <path d="M 506,435 A 240,240 0 0 0 482,458" stroke="#a05a32" stroke-width="14" fill="none"/>
+        <text x="510" y="478" font-family="Source Serif 4" font-weight="600" font-size="13" fill="#14110f">Goose</text>
+      </g>
+      
+      <!-- Chord ribbons (bezier curves through center) -->
+      <!-- Thickness ~= shared features (1-5). Stroke-width 1-7. -->
+      <g fill="none" opacity="0.5">
+        <!-- OpenCode <-> Claude (5 shared: MCP, Plan/Act, subagent, sessions, CLI) -->
+        <path d="M 533,300 Q 300,300 488,153" stroke="#c84630" stroke-width="7" opacity="0.45"/>
+        <!-- OpenCode <-> Cline (4 shared) -->
+        <path d="M 533,300 Q 300,300 77,300" stroke="#c84630" stroke-width="6" opacity="0.4"/>
+        <!-- Claude <-> Gemini (3 shared: MCP, CLI, headless) -->
+        <path d="M 488,153 Q 300,300 312,77" stroke="#2d4a7c" stroke-width="4" opacity="0.35"/>
+        <!-- Claude <-> Cline (4 shared: MCP, Plan/Act, subagent, multi-LLM) -->
+        <path d="M 488,153 Q 300,300 77,300" stroke="#2d4a7c" stroke-width="6" opacity="0.4"/>
+        <!-- Gemini <-> Codex (3 shared) -->
+        <path d="M 288,77 Q 300,300 112,153" stroke="#2d4a7c" stroke-width="4" opacity="0.35"/>
+        <!-- Codex <-> Claude (4 shared: MCP, headless, CLI, subagent) -->
+        <path d="M 112,153 Q 300,300 488,153" stroke="#2d4a7c" stroke-width="5" opacity="0.35"/>
+        <!-- Cline <-> Aider (2 shared) -->
+        <path d="M 77,300 Q 300,300 112,447" stroke="#3f6b3a" stroke-width="3" opacity="0.35"/>
+        <!-- Cline <-> Goose (4 shared) -->
+        <path d="M 77,300 Q 300,300 488,447" stroke="#3f6b3a" stroke-width="5" opacity="0.35"/>
+        <!-- OpenHands <-> Cline (3 shared) -->
+        <path d="M 300,535 Q 300,300 77,300" stroke="#3f6b3a" stroke-width="4" opacity="0.35"/>
+        <!-- OpenHands <-> Aider (2 shared) -->
+        <path d="M 300,535 Q 300,300 112,447" stroke="#3f6b3a" stroke-width="3" opacity="0.35"/>
+        <!-- Goose <-> OpenCode (3 shared) -->
+        <path d="M 488,447 Q 300,300 533,300" stroke="#a05a32" stroke-width="4" opacity="0.35"/>
+        <!-- Aider <-> Codex (2 shared) -->
+        <path d="M 112,447 Q 300,300 112,153" stroke="#3f6b3a" stroke-width="3" opacity="0.3"/>
+        <!-- OpenHands <-> Goose (3 shared) -->
+        <path d="M 300,535 Q 300,300 488,447" stroke="#3f6b3a" stroke-width="4" opacity="0.35"/>
+      </g>
+      
+      <!-- Center label -->
+      <text x="300" y="300" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="300" font-size="14" fill="#6b6058">shared features</text>
+    </svg>
+  </div>
+</section>

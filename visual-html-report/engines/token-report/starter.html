@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<title>报告标题 · YYYY年M月</title>
+<link rel="stylesheet" href="styles/theme-fonts.css">
+<link rel="stylesheet" href="styles/report.css">
+<link id="report-theme" rel="stylesheet" href="styles/themes/editorial-paper.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script defer src="scripts/theme-runtime.js"></script>
+<script defer src="scripts/starter.js"></script>
+</head>
+<body>
+
+<!-- ============ MASTHEAD ============ -->
+<div class="wrap">
+  <header class="masthead">
+    <div class="mast-top">
+      <span>● Live snapshot</span>
+      <span>Vol. 1 · No. 1 · YYYY年M月D日</span>
+      <span>报告类别</span>
+    </div>
+    <h1 class="title">主标题<br>第二行 <em>关键词</em></h1>
+    <p class="lede">一两句话的导读，说明这份报告回答了什么问题、使用什么数据。读完这一句应该让读者知道接下来要看什么。</p>
+    <div class="byline">
+      <span><strong>调研者</strong> Name</span>
+      <span><strong>方法</strong> 方法描述</span>
+      <span><strong>数据截止</strong> YYYY-MM-DD</span>
+      <span><strong>样本量</strong> N 个 ...</span>
+    </div>
+  </header>
+
+  <div class="metrics">
+    <div class="metric">
+      <div class="num">123<small>k</small></div>
+      <div class="label">指标 1 标签</div>
+      <div class="sub">说明文字</div>
+    </div>
+    <div class="metric">
+      <div class="num">45<small>%</small></div>
+      <div class="label">指标 2 标签</div>
+      <div class="sub">说明文字</div>
+    </div>
+    <div class="metric">
+      <div class="num">8</div>
+      <div class="label">指标 3 标签</div>
+      <div class="sub">说明文字</div>
+    </div>
+    <div class="metric">
+      <div class="num">2026</div>
+      <div class="label">指标 4 标签</div>
+      <div class="sub">说明文字</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SECTIONS ============ -->
+<div class="wrap">
+
+<!-- §01 EXAMPLE: HORIZONTAL BAR RANKING -->
+<section>
+  <div class="section-num">§ 01 · 流行度</div>
+  <h2 class="section-title">章节标题：<em>斜体副标</em></h2>
+  <p class="section-desc">1-3 句描述这个章节回答的问题、读图思路。</p>
+  
+  <div class="chart-card">
+    <h3>图表标题</h3>
+    <p class="sub">读图提示或副标题。</p>
+    <div class="legend">
+      <span><span class="swatch" style="background:var(--indigo)"></span>类别 A</span>
+      <span><span class="swatch" style="background:var(--forest)"></span>类别 B</span>
+      <span><span class="swatch" style="background:var(--vermillion)"></span>类别 C</span>
+    </div>
+    <div class="chart-wrap" style="height:480px">
+      <canvas id="sampleBar" role="img" aria-label="Sample horizontal bar chart"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- §02 EXAMPLE: MATRIX TABLE -->
+<section>
+  <div class="section-num">§ 02 · 字段总览</div>
+  <h2 class="section-title">完整<em>对照表</em></h2>
+  <p class="section-desc">单一信息源、包含所有可能用到的字段。</p>
+  
+  <div class="matrix-wrap">
+    <table class="matrix">
+      <thead>
+        <tr><th>名称</th><th>指标 1</th><th>指标 2</th><th>类别</th><th>状态</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>项目 A</td><td class="num">160k</td><td class="num">18.8k</td><td><span class="tag-indie">indie</span></td><td>● 活跃</td></tr>
+        <tr><td>项目 B</td><td class="num">123k</td><td class="num">20.3k</td><td><span class="tag-bigtech">bigtech</span></td><td>● 活跃</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- §03 EXAMPLE: INSIGHTS GRID -->
+<section>
+  <div class="section-num">§ 03 · 解读</div>
+  <h2 class="section-title">关键<em>规律</em></h2>
+  
+  <div class="insights">
+    <div class="insight">
+      <div class="num">No. 01</div>
+      <h4>第一条规律的标题</h4>
+      <p>具体说明这条规律的内容，包括数据支撑与含义。</p>
+    </div>
+    <div class="insight">
+      <div class="num">No. 02</div>
+      <h4>第二条规律</h4>
+      <p>具体说明。</p>
+    </div>
+    <div class="insight">
+      <div class="num">No. 03</div>
+      <h4>第三条规律</h4>
+      <p>具体说明。</p>
+    </div>
+    <div class="insight">
+      <div class="num">No. 04</div>
+      <h4>第四条规律</h4>
+      <p>具体说明。</p>
+    </div>
+  </div>
+  
+  <div class="footnote"><strong>备注：</strong>附加上下文信息。</div>
+</section>
+
+<!-- §NN METHODOLOGY (ALWAYS INCLUDE LAST) -->
+<section>
+  <div class="section-num">§ NN · 调研方法</div>
+  <h2 class="section-title">怎么搞的</h2>
+  
+  <div class="grid-2">
+    <div>
+      <h3 style="font-family:var(--serif);font-weight:600;font-size:20px;margin-bottom:12px">数据来源</h3>
+      <ul style="font-family:var(--serif);font-size:15px;line-height:1.8;color:var(--ink-soft);padding-left:20px">
+        <li>来源 1</li>
+        <li>来源 2</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-family:var(--serif);font-weight:600;font-size:20px;margin-bottom:12px">已知偏差</h3>
+      <ul style="font-family:var(--serif);font-size:15px;line-height:1.8;color:var(--ink-soft);padding-left:20px">
+        <li>限制 1</li>
+        <li>限制 2</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<div class="wrap">
+  <footer>
+    <div class="colophon">— FIN —</div>
+    <div class="sig">Compiled by [author] · [org] · YYYY年M月D日 · 仅供参考</div>
+  </footer>
+</div>
+
+</body>
+</html>

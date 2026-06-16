@@ -1,0 +1,71 @@
+<section>
+  <div class="section-num">§ 59 · 排名彩带</div>
+  <h2 class="section-title">排名彩带（<em>Ribbon Rank Flow</em>）</h2>
+  <p class="section-desc">和 §19 的斜线图(slope chart) 类似，但多了"彩带粗细 = 量级"的维度。每条彩带追踪一个项目从 2024 → 2025 → 2026 三个时间点的排名 + star 数。视觉上比 slope chart 更有"流动感"，但密度也更高、对眼睛要求更高。</p>
+  
+  <div class="svg-card">
+    <svg viewBox="0 0 1000 540" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ribbon rank flow chart">
+      <!-- Vertical reference lines -->
+      <g stroke="rgba(20,17,15,0.2)" stroke-width="1">
+        <line x1="160" y1="60" x2="160" y2="500"/>
+        <line x1="500" y1="60" x2="500" y2="500"/>
+        <line x1="840" y1="60" x2="840" y2="500"/>
+      </g>
+      <!-- Date labels -->
+      <g font-family="JetBrains Mono" font-size="11" fill="#14110f" letter-spacing="0.1em" font-weight="500">
+        <text x="160" y="42" text-anchor="middle">2024 · Q4</text>
+        <text x="500" y="42" text-anchor="middle">2025 · Q4</text>
+        <text x="840" y="42" text-anchor="middle">2026 · Q2</text>
+      </g>
+      
+      <!-- Ribbons: each is a thick curve. Layer order: smaller ones on top -->
+      <!-- Aider: rank 1 → 5 → 8 (was first, slowly dropped) -->
+      <path d="M 160 80 C 280 80 380 200 500 200 C 620 200 720 320 840 320" fill="none" stroke="#6b3a5a" stroke-width="14" opacity="0.85" stroke-linecap="round"/>
+      <text x="148" y="84" text-anchor="end" font-family="Source Serif 4" font-style="italic" font-size="12" fill="#6b3a5a" font-weight="500">Aider</text>
+      <text x="852" y="324" font-family="Source Serif 4" font-style="italic" font-size="12" fill="#6b3a5a" font-weight="500">Aider · 44.8k</text>
+      
+      <!-- Continue: rank 2 → 6 → 9 -->
+      <path d="M 160 130 C 280 130 380 240 500 240 C 620 240 720 360 840 360" fill="none" stroke="#4a5759" stroke-width="10" opacity="0.85" stroke-linecap="round"/>
+      <text x="148" y="134" text-anchor="end" font-family="Source Serif 4" font-style="italic" font-size="12" fill="#4a5759" font-weight="500">Continue</text>
+      <text x="852" y="364" font-family="Source Serif 4" font-style="italic" font-size="12" fill="#4a5759" font-weight="500">Continue · 33k</text>
+      
+      <!-- Cline: rank 3 → 4 → 7 -->
+      <path d="M 160 180 C 280 180 380 160 500 160 C 620 160 720 280 840 280" fill="none" stroke="#c89a47" stroke-width="14" opacity="0.85" stroke-linecap="round"/>
+      <text x="148" y="184" text-anchor="end" font-family="Source Serif 4" font-style="italic" font-size="12" fill="#c89a47" font-weight="500">Cline</text>
+      <text x="852" y="284" font-family="Source Serif 4" font-style="italic" font-size="12" fill="#c89a47" font-weight="500">Cline · 61.2k</text>
+      
+      <!-- Open Interpreter: rank 4 → 7 → 6 -->
+      <path d="M 160 230 C 280 230 380 280 500 280 C 620 280 720 240 840 240" fill="none" stroke="#a05a32" stroke-width="14" opacity="0.85" stroke-linecap="round"/>
+      <text x="148" y="234" text-anchor="end" font-family="Source Serif 4" font-style="italic" font-size="12" fill="#a05a32" font-weight="500">Open Interpreter</text>
+      <text x="852" y="244" font-family="Source Serif 4" font-style="italic" font-size="12" fill="#a05a32" font-weight="500">Open Interp. · 63.5k</text>
+      
+      <!-- OpenHands (OpenDevin): rank 5 → 3 → 5 -->
+      <path d="M 160 280 C 280 280 380 120 500 120 C 620 120 720 200 840 200" fill="none" stroke="#3f6b3a" stroke-width="16" opacity="0.85" stroke-linecap="round"/>
+      <text x="148" y="284" text-anchor="end" font-family="Source Serif 4" font-style="italic" font-size="12" fill="#3f6b3a" font-weight="500">OpenHands</text>
+      <text x="852" y="204" font-family="Source Serif 4" font-style="italic" font-size="12" fill="#3f6b3a" font-weight="500">OpenHands · 73.4k</text>
+      
+      <!-- Claude Code: did not exist → rank 2 → rank 2 -->
+      <path d="M 500 100 C 620 100 720 100 840 100" fill="none" stroke="#2d4a7c" stroke-width="20" opacity="0.9" stroke-linecap="round"/>
+      <circle cx="500" cy="100" r="5" fill="#2d4a7c"/>
+      <text x="488" y="104" text-anchor="end" font-family="Source Serif 4" font-style="italic" font-size="11" fill="#2d4a7c" font-weight="500">＊新</text>
+      <text x="852" y="104" font-family="Source Serif 4" font-style="italic" font-size="12" fill="#2d4a7c" font-weight="500">Claude Code · 123k</text>
+      
+      <!-- OpenCode: did not exist → rank 1 → rank 1 -->
+      <path d="M 500 60 C 620 60 720 60 840 60" fill="none" stroke="#c84630" stroke-width="24" opacity="0.95" stroke-linecap="round"/>
+      <circle cx="500" cy="60" r="5" fill="#c84630"/>
+      <text x="488" y="64" text-anchor="end" font-family="Source Serif 4" font-style="italic" font-size="11" fill="#c84630" font-weight="500">＊新</text>
+      <text x="852" y="64" font-family="Source Serif 4" font-style="italic" font-size="12" fill="#c84630" font-weight="500">OpenCode · 160k</text>
+      
+      <!-- Gemini CLI: did not exist → rank 5 → rank 3 -->
+      <path d="M 500 180 C 620 180 720 140 840 140" fill="none" stroke="#6b3a5a" stroke-width="16" opacity="0.85" stroke-linecap="round" stroke-dasharray="0"/>
+      <circle cx="500" cy="180" r="5" fill="#6b3a5a"/>
+      <text x="488" y="184" text-anchor="end" font-family="Source Serif 4" font-style="italic" font-size="11" fill="#6b3a5a" font-weight="500">＊新</text>
+      <text x="852" y="144" font-family="Source Serif 4" font-style="italic" font-size="12" fill="#6b3a5a" font-weight="500">Gemini CLI · 104k</text>
+      
+      <!-- Legend & encoding -->
+      <g transform="translate(0,510)" font-family="JetBrains Mono" font-size="10" fill="#6b6058">
+        <text x="60" y="0">编码：彩带粗细 ∝ 当前 stars · 颜色 = 项目 · 出现位置 = 排名（低=高名）</text>
+      </g>
+    </svg>
+  </div>
+</section>

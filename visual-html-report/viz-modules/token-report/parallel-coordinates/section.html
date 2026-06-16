@@ -1,0 +1,67 @@
+<section>
+  <div class="section-num">§ 54 · 平行坐标</div>
+  <h2 class="section-title">平行坐标图（<em>Parallel Coordinates</em>）</h2>
+  <p class="section-desc">把若干个维度并排立成多根纵轴，每个个体是一条"穿过所有轴的折线"。优势：能同时看 5-7 个维度上的高低模式（雷达图最多 6 个还容易重叠）；劣势：需要解释读法。</p>
+  
+  <div class="svg-card">
+    <svg viewBox="0 0 1000 460" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parallel coordinates plot of 5 tools across 6 dimensions">
+      <!-- 6 vertical axes -->
+      <g stroke="#14110f" stroke-width="1.5">
+        <line x1="80" y1="60" x2="80" y2="380"/>
+        <line x1="240" y1="60" x2="240" y2="380"/>
+        <line x1="400" y1="60" x2="400" y2="380"/>
+        <line x1="560" y1="60" x2="560" y2="380"/>
+        <line x1="720" y1="60" x2="720" y2="380"/>
+        <line x1="880" y1="60" x2="880" y2="380"/>
+      </g>
+      <!-- Axis labels (top) -->
+      <g font-family="JetBrains Mono" font-size="10" fill="#6b6058" letter-spacing="0.05em">
+        <text x="80" y="48" text-anchor="middle">STARS</text>
+        <text x="240" y="48" text-anchor="middle">FORKS</text>
+        <text x="400" y="48" text-anchor="middle">SWE-BENCH</text>
+        <text x="560" y="48" text-anchor="middle">PROVIDERS</text>
+        <text x="720" y="48" text-anchor="middle">MCP</text>
+        <text x="880" y="48" text-anchor="middle">AGE (月)</text>
+      </g>
+      <!-- Axis tick labels (bottom) -->
+      <g font-family="JetBrains Mono" font-size="9" fill="#6b6058">
+        <text x="80" y="398" text-anchor="middle">0 ─ 200k</text>
+        <text x="240" y="398" text-anchor="middle">0 ─ 25k</text>
+        <text x="400" y="398" text-anchor="middle">40 ─ 85%</text>
+        <text x="560" y="398" text-anchor="middle">1 ─ 100</text>
+        <text x="720" y="398" text-anchor="middle">0 ─ 10</text>
+        <text x="880" y="398" text-anchor="middle">3 ─ 36</text>
+      </g>
+      
+      <!-- Tool 1: OpenCode (vermillion) -->
+      <polyline points="80,124 240,140 400,180 560,68 720,76 880,275" fill="none" stroke="#c84630" stroke-width="2" opacity="0.85"/>
+      <!-- Tool 2: Claude Code (indigo) -->
+      <polyline points="80,151 240,116 400,76 560,300 720,108 880,238" fill="none" stroke="#2d4a7c" stroke-width="2" opacity="0.85"/>
+      <!-- Tool 3: Gemini CLI (forest) -->
+      <polyline points="80,175 240,180 400,158 560,300 720,108 880,275" fill="none" stroke="#3f6b3a" stroke-width="2" opacity="0.85"/>
+      <!-- Tool 4: Aider (ochre) -->
+      <polyline points="80,288 240,304 400,212 560,124 720,212 880,124" fill="none" stroke="#c89a47" stroke-width="2" opacity="0.85"/>
+      <!-- Tool 5: OpenHands (plum) -->
+      <polyline points="80,213 240,236 400,196 560,76 720,108 880,212" fill="none" stroke="#6b3a5a" stroke-width="2" opacity="0.85"/>
+      
+      <!-- Dots at intersections -->
+      <g>
+        <!-- OpenCode -->
+        <circle cx="80" cy="124" r="4" fill="#c84630"/><circle cx="240" cy="140" r="4" fill="#c84630"/><circle cx="400" cy="180" r="4" fill="#c84630"/><circle cx="560" cy="68" r="4" fill="#c84630"/><circle cx="720" cy="76" r="4" fill="#c84630"/><circle cx="880" cy="275" r="4" fill="#c84630"/>
+        <!-- Claude Code -->
+        <circle cx="80" cy="151" r="4" fill="#2d4a7c"/><circle cx="240" cy="116" r="4" fill="#2d4a7c"/><circle cx="400" cy="76" r="4" fill="#2d4a7c"/><circle cx="560" cy="300" r="4" fill="#2d4a7c"/><circle cx="720" cy="108" r="4" fill="#2d4a7c"/><circle cx="880" cy="238" r="4" fill="#2d4a7c"/>
+        <!-- Gemini CLI -->
+        <circle cx="80" cy="175" r="4" fill="#3f6b3a"/><circle cx="240" cy="180" r="4" fill="#3f6b3a"/><circle cx="400" cy="158" r="4" fill="#3f6b3a"/><circle cx="560" cy="300" r="4" fill="#3f6b3a"/><circle cx="720" cy="108" r="4" fill="#3f6b3a"/><circle cx="880" cy="275" r="4" fill="#3f6b3a"/>
+      </g>
+      
+      <!-- Legend -->
+      <g transform="translate(80,432)" font-family="IBM Plex Sans" font-size="11">
+        <line x1="0" y1="0" x2="20" y2="0" stroke="#c84630" stroke-width="2"/><text x="26" y="3" fill="#3a342f">OpenCode</text>
+        <line x1="130" y1="0" x2="150" y2="0" stroke="#2d4a7c" stroke-width="2"/><text x="156" y="3" fill="#3a342f">Claude Code</text>
+        <line x1="280" y1="0" x2="300" y2="0" stroke="#3f6b3a" stroke-width="2"/><text x="306" y="3" fill="#3a342f">Gemini CLI</text>
+        <line x1="420" y1="0" x2="440" y2="0" stroke="#c89a47" stroke-width="2"/><text x="446" y="3" fill="#3a342f">Aider</text>
+        <line x1="540" y1="0" x2="560" y2="0" stroke="#6b3a5a" stroke-width="2"/><text x="566" y="3" fill="#3a342f">OpenHands</text>
+      </g>
+    </svg>
+  </div>
+</section>

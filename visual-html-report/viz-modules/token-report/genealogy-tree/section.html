@@ -1,0 +1,185 @@
+<section>
+  <div class="section-num">§ 03 · 家族关系</div>
+  <h2 class="section-title">生态系谱：<em>谁 fork 自谁</em></h2>
+  <p class="section-desc">现代 coding CLI 的高密度繁殖期是 2024 底 ~ 2026 初。一个家族经常一年内冒出三代：Cline → Roo Code → Kilo Code；Gemini CLI → Qwen Code。Claude Code 没有直接 fork，但 OpenCode / Crush / Goose 都是它定义的"终端 + plan/act + MCP"模式的变体。</p>
+  
+  <div class="geneal-wrap">
+    <svg viewBox="0 0 1180 720" width="100%" style="min-width:900px;height:auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Genealogy diagram of coding CLI agents showing fork relationships">
+      <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+          <path d="M0,0 L0,10 L9,5 z" fill="#6b6058"/>
+        </marker>
+        <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+          <path d="M0,0 L0,10 L9,5 z" fill="#c84630"/>
+        </marker>
+      </defs>
+      
+      <!-- Vertical timeline axis -->
+      <line x1="80" y1="50" x2="80" y2="680" stroke="#14110f" stroke-width="1.5"/>
+      <g font-family="JetBrains Mono" font-size="10" fill="#6b6058">
+        <text x="50" y="80" text-anchor="end">2023</text>
+        <text x="50" y="190" text-anchor="end">2024</text>
+        <text x="50" y="320" text-anchor="end">2025 Q1</text>
+        <text x="50" y="430" text-anchor="end">2025 Q2-3</text>
+        <text x="50" y="540" text-anchor="end">2025 Q4</text>
+        <text x="50" y="650" text-anchor="end">2026</text>
+      </g>
+      <g stroke="rgba(20,17,15,0.08)" stroke-width="0.5">
+        <line x1="80" y1="80" x2="1140" y2="80"/>
+        <line x1="80" y1="190" x2="1140" y2="190"/>
+        <line x1="80" y1="320" x2="1140" y2="320"/>
+        <line x1="80" y1="430" x2="1140" y2="430"/>
+        <line x1="80" y1="540" x2="1140" y2="540"/>
+        <line x1="80" y1="650" x2="1140" y2="650"/>
+      </g>
+      
+      <!-- LANE LABELS at top -->
+      <g font-family="JetBrains Mono" font-size="10" fill="#c84630" font-weight="500">
+        <text x="180" y="32">终端原生</text>
+        <text x="430" y="32">大厂 CLI</text>
+        <text x="700" y="32">IDE 扩展系</text>
+        <text x="970" y="32">Agent 平台</text>
+      </g>
+      
+      <!-- 2023: Aider, Open Interpreter, GPT-engineer-->
+      <g>
+        <rect x="120" y="60" width="140" height="44" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="190" y="80" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Aider</text>
+        <text x="190" y="96" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">2023 · Python · 44.8k★</text>
+      </g>
+      <g>
+        <rect x="940" y="60" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="1020" y="80" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Open Interpreter</text>
+        <text x="1020" y="96" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">2023 · Python · 63.5k★</text>
+      </g>
+      
+      <!-- 2024: Continue, Cline (Claude Dev), Plandex, SWE-agent, OpenHands(OpenDevin) -->
+      <g>
+        <rect x="610" y="170" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="690" y="190" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Continue</text>
+        <text x="690" y="206" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">VS Code · 33.1k★</text>
+      </g>
+      <g>
+        <rect x="790" y="170" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="870" y="190" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Cline (Claude Dev)</text>
+        <text x="870" y="206" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">VS Code · 61.2k★</text>
+      </g>
+      <g>
+        <rect x="940" y="170" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="1020" y="190" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">SWE-agent</text>
+        <text x="1020" y="206" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">Princeton · 17k★</text>
+      </g>
+      <g>
+        <rect x="120" y="170" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="200" y="190" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Plandex</text>
+        <text x="200" y="206" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">Go · 15.3k★</text>
+      </g>
+      
+      <!-- 2024 H2: OpenDevin → OpenHands -->
+      <g>
+        <rect x="940" y="240" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="1020" y="260" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">OpenHands</text>
+        <text x="1020" y="276" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">改名自 OpenDevin · 73.4k★</text>
+      </g>
+      <line x1="1020" y1="214" x2="1020" y2="238" stroke="#6b6058" stroke-width="1" marker-end="url(#arrowhead)"/>
+      
+      <!-- 2025 Q1: Claude Code, Roo Code, Continue forks -->
+      <g>
+        <rect x="380" y="300" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#2d4a7c" stroke-width="1.5"/>
+        <text x="460" y="320" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Claude Code</text>
+        <text x="460" y="336" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">Anthropic · 123k★</text>
+      </g>
+      <g>
+        <rect x="790" y="300" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#c84630" stroke-width="1.5"/>
+        <text x="870" y="320" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Roo Code</text>
+        <text x="870" y="336" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#c84630">fork of Cline · 24k★ · 停服中</text>
+      </g>
+      <line x1="870" y1="214" x2="870" y2="298" stroke="#6b6058" stroke-width="1" marker-end="url(#arrowhead)" stroke-dasharray="3 3"/>
+      
+      <!-- 2025 Q2-3: Codex, Gemini CLI, Goose, OpenCode, Crush, bolt.diy, Kilo Code, Tabby continues -->
+      <g>
+        <rect x="380" y="410" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#2d4a7c" stroke-width="1.5"/>
+        <text x="460" y="430" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Codex CLI</text>
+        <text x="460" y="446" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">OpenAI · Rust · 75.6k★</text>
+      </g>
+      <g>
+        <rect x="380" y="460" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#2d4a7c" stroke-width="1.5"/>
+        <text x="460" y="480" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Gemini CLI</text>
+        <text x="460" y="496" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">Google · TS · 104k★</text>
+      </g>
+      <g>
+        <rect x="120" y="410" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="200" y="430" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">OpenCode</text>
+        <text x="200" y="446" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">sst → anomalyco · 160k★</text>
+      </g>
+      <g>
+        <rect x="120" y="460" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="200" y="480" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Crush</text>
+        <text x="200" y="496" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">Charm · Go · 23.4k★</text>
+      </g>
+      <g>
+        <rect x="120" y="510" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#a05a32" stroke-width="1.5"/>
+        <text x="200" y="530" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Goose</text>
+        <text x="200" y="546" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#a05a32">捐 Linux 基金会 · 27k★</text>
+      </g>
+      <g>
+        <rect x="610" y="410" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="690" y="430" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Kilo Code</text>
+        <text x="690" y="446" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">fork of Roo · 19.2k★</text>
+      </g>
+      <line x1="870" y1="344" x2="690" y2="408" stroke="#6b6058" stroke-width="1" marker-end="url(#arrowhead)" stroke-dasharray="3 3"/>
+      
+      <g>
+        <rect x="610" y="460" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="690" y="480" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">bolt.diy</text>
+        <text x="690" y="496" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">StackBlitz · 19k★</text>
+      </g>
+      
+      <g>
+        <rect x="940" y="410" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="1020" y="430" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">mini-SWE-agent</text>
+        <text x="1020" y="446" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">瘦身版 · ~100行</text>
+      </g>
+      <line x1="1020" y1="284" x2="1020" y2="408" stroke="#6b6058" stroke-width="1" marker-end="url(#arrowhead)" stroke-dasharray="3 3"/>
+      
+      <!-- 2025 Q4: Qwen Code, Tabby continues -->
+      <g>
+        <rect x="380" y="570" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#2d4a7c" stroke-width="1.5"/>
+        <text x="460" y="590" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Qwen Code</text>
+        <text x="460" y="606" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">阿里 · fork of Gemini · 24.4k★</text>
+      </g>
+      <line x1="460" y1="504" x2="460" y2="568" stroke="#6b6058" stroke-width="1" marker-end="url(#arrowhead)" stroke-dasharray="3 3"/>
+      <text x="475" y="540" font-family="JetBrains Mono" font-size="9" fill="#6b6058">fork</text>
+      
+      <g>
+        <rect x="120" y="570" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="200" y="590" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Pi (pi-mono)</text>
+        <text x="200" y="606" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">badlogic · 极简 harness</text>
+      </g>
+      
+      <!-- Tabby in 2024-now, on right column as self-host -->
+      <g>
+        <rect x="790" y="510" width="160" height="44" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="870" y="530" text-anchor="middle" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="14" fill="#14110f">Tabby</text>
+        <text x="870" y="546" text-anchor="middle" font-family="IBM Plex Sans" font-size="10" fill="#6b6058">自部署补全 · Rust · 23k★</text>
+      </g>
+      
+      <!-- Legend -->
+      <g transform="translate(80,690)">
+        <text x="0" y="0" font-family="JetBrains Mono" font-size="9" fill="#6b6058" text-transform="uppercase">图例</text>
+        <rect x="50" y="-9" width="14" height="14" rx="2" fill="#fbf8f1" stroke="#2d4a7c" stroke-width="1.5"/>
+        <text x="72" y="2" font-family="IBM Plex Sans" font-size="11" fill="#3a342f">大厂</text>
+        <rect x="120" y="-9" width="14" height="14" rx="2" fill="#fbf8f1" stroke="#3f6b3a" stroke-width="1.5"/>
+        <text x="142" y="2" font-family="IBM Plex Sans" font-size="11" fill="#3a342f">独立</text>
+        <rect x="200" y="-9" width="14" height="14" rx="2" fill="#fbf8f1" stroke="#a05a32" stroke-width="1.5"/>
+        <text x="222" y="2" font-family="IBM Plex Sans" font-size="11" fill="#3a342f">基金会</text>
+        <rect x="290" y="-9" width="14" height="14" rx="2" fill="#fbf8f1" stroke="#c84630" stroke-width="1.5"/>
+        <text x="312" y="2" font-family="IBM Plex Sans" font-size="11" fill="#3a342f">即将停服</text>
+        <line x1="400" y1="-2" x2="430" y2="-2" stroke="#6b6058" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arrowhead)"/>
+        <text x="440" y="2" font-family="IBM Plex Sans" font-size="11" fill="#3a342f">fork / 派生</text>
+      </g>
+    </svg>
+  </div>
+  
+  <div class="footnote"><strong>家族关系备忘：</strong>Cline 原名 Claude Dev，2024 年底改名；Roo Code 是 Cline 的 fork，加了 multi-mode 系统；Kilo Code 又从 Roo fork，加了 JetBrains 支持。Roo Code 团队 2026年4月21日宣布 5月15日停服，全力转型做云端 agent (Roomote)。Qwen Code 是阿里完全 fork 自 Google 的 Gemini CLI，深度适配 Qwen3-Coder。OpenHands 前身就是大名鼎鼎的 OpenDevin。</div>
+</section>

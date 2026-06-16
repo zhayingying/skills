@@ -1,0 +1,89 @@
+<section>
+  <div class="section-num">§ 39 · 增减分解</div>
+  <h2 class="section-title">瀑布图：<em>OpenCode 一年涨了多少</em></h2>
+  <p class="section-desc">瀑布图把"起点 → 终点"的变化拆成多个增减贡献。橙色 = 增量，灰色 = 损失，蓝色 = 起点/终点合计。一眼看出"是哪些事件让 OpenCode 从 3k 涨到了 160k"。</p>
+  
+  <div class="svg-card">
+    <svg viewBox="0 0 1100 460" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Waterfall chart breaking down OpenCode star growth">
+      <!-- Baseline y=380 = 0 stars; y=40 = 160k stars; scale: 1k = 2.125 px -->
+      <line x1="60" y1="380" x2="1060" y2="380" stroke="#14110f" stroke-width="1"/>
+      <g font-family="JetBrains Mono" font-size="10" fill="#6b6058">
+        <text x="50" y="384" text-anchor="end">0</text>
+        <text x="50" y="299" text-anchor="end">40k</text>
+        <line x1="58" y1="295" x2="62" y2="295" stroke="#14110f"/>
+        <text x="50" y="214" text-anchor="end">80k</text>
+        <line x1="58" y1="210" x2="62" y2="210" stroke="#14110f"/>
+        <text x="50" y="129" text-anchor="end">120k</text>
+        <line x1="58" y1="125" x2="62" y2="125" stroke="#14110f"/>
+        <text x="50" y="44" text-anchor="end">160k</text>
+        <line x1="58" y1="40" x2="62" y2="40" stroke="#14110f"/>
+      </g>
+      
+      <!-- Bar 1: Start (2025.5 baseline) = 3k -->
+      <rect x="100" y="374" width="100" height="6" fill="#2d4a7c"/>
+      <text x="150" y="395" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#6b6058">起点</text>
+      <text x="150" y="408" text-anchor="middle" font-family="Source Serif 4" font-size="11" fill="#14110f">2025.5</text>
+      <text x="150" y="421" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#14110f">3k</text>
+      
+      <!-- Connector lines + ascending green bars for each gain -->
+      <!-- Bar 2: SST acquires/forks (+15k → 18k) -->
+      <line x1="200" y1="374" x2="220" y2="374" stroke="#6b6058" stroke-width="0.5" stroke-dasharray="2 2"/>
+      <rect x="220" y="342" width="100" height="32" fill="#c89a47"/>
+      <text x="270" y="335" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#3f6b3a">+15k</text>
+      <text x="270" y="395" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#6b6058">SST fork</text>
+      <text x="270" y="408" text-anchor="middle" font-family="Source Serif 4" font-size="11" fill="#14110f">2025.7-8</text>
+      
+      <!-- Bar 3: Anomaly Co rebrand (+44k → 62k) -->
+      <line x1="320" y1="342" x2="340" y2="342" stroke="#6b6058" stroke-width="0.5" stroke-dasharray="2 2"/>
+      <rect x="340" y="249" width="100" height="93" fill="#c89a47"/>
+      <text x="390" y="242" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#3f6b3a">+44k</text>
+      <text x="390" y="395" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#6b6058">改名 / 重启</text>
+      <text x="390" y="408" text-anchor="middle" font-family="Source Serif 4" font-size="11" fill="#14110f">2025.9-10</text>
+      
+      <!-- Bar 4: Hacker News viral (+46k → 108k) -->
+      <line x1="440" y1="249" x2="460" y2="249" stroke="#6b6058" stroke-width="0.5" stroke-dasharray="2 2"/>
+      <rect x="460" y="151" width="100" height="98" fill="#c89a47"/>
+      <text x="510" y="144" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#3f6b3a">+46k</text>
+      <text x="510" y="395" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#6b6058">HN 头条</text>
+      <text x="510" y="408" text-anchor="middle" font-family="Source Serif 4" font-size="11" fill="#14110f">2025.11</text>
+      
+      <!-- Bar 5: Cursor migration wave (+30k → 138k) -->
+      <line x1="560" y1="151" x2="580" y2="151" stroke="#6b6058" stroke-width="0.5" stroke-dasharray="2 2"/>
+      <rect x="580" y="87" width="100" height="64" fill="#c89a47"/>
+      <text x="630" y="80" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#3f6b3a">+30k</text>
+      <text x="630" y="395" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#6b6058">Cursor 出走</text>
+      <text x="630" y="408" text-anchor="middle" font-family="Source Serif 4" font-size="11" fill="#14110f">2026.1-2</text>
+      
+      <!-- Bar 6: Brief star scrubbing -loss (-3k → 135k) -->
+      <line x1="680" y1="87" x2="700" y2="87" stroke="#6b6058" stroke-width="0.5" stroke-dasharray="2 2"/>
+      <rect x="700" y="87" width="100" height="6" fill="#6b6058" opacity="0.6"/>
+      <text x="750" y="83" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#c84630">−3k</text>
+      <text x="750" y="395" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#6b6058">假星清理</text>
+      <text x="750" y="408" text-anchor="middle" font-family="Source Serif 4" font-size="11" fill="#14110f">2026.3</text>
+      
+      <!-- Bar 7: Sustained growth (+28k → 163k → trim to 160k) -->
+      <line x1="800" y1="93" x2="820" y2="93" stroke="#6b6058" stroke-width="0.5" stroke-dasharray="2 2"/>
+      <rect x="820" y="34" width="100" height="59" fill="#c89a47"/>
+      <text x="870" y="27" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#3f6b3a">+25k</text>
+      <text x="870" y="395" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#6b6058">持续上行</text>
+      <text x="870" y="408" text-anchor="middle" font-family="Source Serif 4" font-size="11" fill="#14110f">2026.4-5</text>
+      
+      <!-- Bar 8: End (current 160k) -->
+      <line x1="920" y1="40" x2="940" y2="40" stroke="#6b6058" stroke-width="0.5" stroke-dasharray="2 2"/>
+      <rect x="940" y="40" width="100" height="340" fill="#2d4a7c"/>
+      <text x="990" y="34" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#14110f">160k</text>
+      <text x="990" y="395" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#6b6058">终点</text>
+      <text x="990" y="408" text-anchor="middle" font-family="Source Serif 4" font-size="11" fill="#14110f">2026.5</text>
+      
+      <!-- Legend -->
+      <g transform="translate(60,442)" font-family="IBM Plex Sans" font-size="11" fill="#3a342f">
+        <rect x="0" y="-9" width="14" height="10" rx="1" fill="#2d4a7c"/>
+        <text x="20" y="0">起点/终点</text>
+        <rect x="100" y="-9" width="14" height="10" rx="1" fill="#c89a47"/>
+        <text x="120" y="0">增量</text>
+        <rect x="170" y="-9" width="14" height="10" rx="1" fill="#6b6058" opacity="0.6"/>
+        <text x="190" y="0">损失</text>
+      </g>
+    </svg>
+  </div>
+</section>

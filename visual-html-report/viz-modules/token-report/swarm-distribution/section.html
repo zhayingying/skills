@@ -1,0 +1,91 @@
+<section>
+  <div class="section-num">§ 36 · 群体分布</div>
+  <h2 class="section-title">蜂群图：<em>每个点都看得见</em></h2>
+  <p class="section-desc">把所有 18 个工具按 star 数沿水平轴排开，纵向用轻微抖动避免重叠。和 §29 箱线图不同：这里强调"每个个体都不会被遮住"，最适合 15–60 个样本的中等规模数据。</p>
+  
+  <div class="svg-card">
+    <svg viewBox="0 0 1100 340" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Beeswarm plot of all 18 coding tools by stars">
+      <line x1="60" y1="260" x2="1040" y2="260" stroke="#14110f" stroke-width="1"/>
+      <g font-family="JetBrains Mono" font-size="10" fill="#6b6058">
+        <text x="60" y="282" text-anchor="middle">0</text>
+        <line x1="60" y1="255" x2="60" y2="265" stroke="#14110f"/>
+        <text x="305" y="282" text-anchor="middle">40k</text>
+        <line x1="305" y1="255" x2="305" y2="265" stroke="#14110f"/>
+        <text x="550" y="282" text-anchor="middle">80k</text>
+        <line x1="550" y1="255" x2="550" y2="265" stroke="#14110f"/>
+        <text x="795" y="282" text-anchor="middle">120k</text>
+        <line x1="795" y1="255" x2="795" y2="265" stroke="#14110f"/>
+        <text x="1040" y="282" text-anchor="middle">160k</text>
+        <line x1="1040" y1="255" x2="1040" y2="265" stroke="#14110f"/>
+        <text x="550" y="312" text-anchor="middle" letter-spacing="0.1em">GITHUB STARS</text>
+      </g>
+      <!-- Title -->
+      <text x="60" y="32" font-family="JetBrains Mono" font-size="10" fill="#6b6058" letter-spacing="0.1em">● 大厂　● 独立　● 基金会　● 停服</text>
+      
+      <!-- 18 dots, x position based on stars (60+stars*6.125), y jittered between 130-240 -->
+      <g>
+        <!-- OpenCode 160, x=60+160*6.125=1040 -->
+        <circle cx="1040" cy="180" r="13" fill="#3f6b3a" opacity="0.78"/>
+        <text x="1040" y="155" font-family="Source Serif 4" font-size="11" text-anchor="middle" fill="#14110f">OpenCode</text>
+        
+        <!-- Claude Code 123, x=60+123*6.125=813 -->
+        <circle cx="813" cy="200" r="13" fill="#2d4a7c" opacity="0.78"/>
+        <text x="813" y="175" font-family="Source Serif 4" font-size="11" text-anchor="middle" fill="#14110f">Claude Code</text>
+        
+        <!-- Gemini 104, x=60+104*6.125=697 -->
+        <circle cx="697" cy="170" r="12" fill="#2d4a7c" opacity="0.78"/>
+        <text x="697" y="145" font-family="Source Serif 4" font-size="11" text-anchor="middle" fill="#14110f">Gemini CLI</text>
+        
+        <!-- Codex 75.6, x=60+75.6*6.125=523 -->
+        <circle cx="523" cy="225" r="12" fill="#2d4a7c" opacity="0.78"/>
+        
+        <!-- OpenHands 73.4, x=60+73.4*6.125=510 -->
+        <circle cx="510" cy="195" r="12" fill="#3f6b3a" opacity="0.78"/>
+        
+        <!-- Open Interpreter 63.5, x=449 -->
+        <circle cx="449" cy="170" r="11" fill="#3f6b3a" opacity="0.78"/>
+        
+        <!-- Cline 61.2, x=435 -->
+        <circle cx="435" cy="225" r="11" fill="#3f6b3a" opacity="0.78"/>
+        
+        <!-- Aider 44.8, x=334 -->
+        <circle cx="334" cy="190" r="10" fill="#3f6b3a" opacity="0.78"/>
+        
+        <!-- Continue 33.1, x=263 -->
+        <circle cx="263" cy="215" r="9" fill="#3f6b3a" opacity="0.78"/>
+        
+        <!-- Goose 27, x=225 -->
+        <circle cx="225" cy="178" r="9" fill="#a05a32" opacity="0.78"/>
+        
+        <!-- Qwen 24.4, x=210 -->
+        <circle cx="210" cy="232" r="9" fill="#2d4a7c" opacity="0.78"/>
+        
+        <!-- Roo 24, x=207 -->
+        <circle cx="195" cy="200" r="9" fill="#c84630" opacity="0.78"/>
+        
+        <!-- Crush 23.4, x=203 -->
+        <circle cx="180" cy="225" r="9" fill="#3f6b3a" opacity="0.78"/>
+        
+        <!-- Tabby 23, x=201 -->
+        <circle cx="165" cy="180" r="9" fill="#3f6b3a" opacity="0.78"/>
+        
+        <!-- Kilo 19.2, x=178 -->
+        <circle cx="148" cy="210" r="8" fill="#3f6b3a" opacity="0.78"/>
+        
+        <!-- bolt.diy 19, x=176 -->
+        <circle cx="132" cy="230" r="8" fill="#3f6b3a" opacity="0.78"/>
+        
+        <!-- SWE-agent 17, x=164 -->
+        <circle cx="118" cy="190" r="8" fill="#3f6b3a" opacity="0.78"/>
+        
+        <!-- Plandex 15.3, x=154 -->
+        <circle cx="104" cy="215" r="8" fill="#3f6b3a" opacity="0.78"/>
+      </g>
+      <!-- Density annotation -->
+      <g font-family="Source Serif 4" font-style="italic" font-size="12" fill="#6b6058">
+        <text x="120" y="80">↑ 大部分项目集中在 30k 以下</text>
+        <text x="700" y="100">↑ 头部三强分开很远</text>
+      </g>
+    </svg>
+  </div>
+</section>

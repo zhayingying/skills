@@ -1,0 +1,27 @@
+<section>
+  <div class="section-num">§ 09 · 你问到的</div>
+  <h2 class="section-title">Pi Agent · 你点名问到的"小而美"</h2>
+  <p class="section-desc">由 libGDX 之父 Mario Zechner (badlogic) 一人写的极简 coding harness。星数不到 2k，但代码量极小、上下文工程能力最完整、扩展模型最干净。是上面任何一个的"原教旨主义"版本。</p>
+  
+  <div class="chart-card" style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+    <div>
+      <h3>核心理念</h3>
+      <p style="font-family:var(--serif);font-size:15px;line-height:1.7;color:var(--ink-soft);margin-top:8px">
+        Pi 默认只给模型 4 个工具：<code style="font-family:var(--mono);font-size:13px;background:var(--paper-warm);padding:2px 6px;border-radius:2px">read / write / edit / bash</code>。
+        哲学是"如果 AI 能用好 bash，它就能做任何事"。没有 plan mode、没有子 agent、没有 fancy 集成——所有这些都通过 Skills、Extensions、Prompt Templates、Pi Packages 用户自己装。差异化渲染（diff-rendering TUI）保证终端不闪烁。
+      </p>
+    </div>
+    <div>
+      <h3>对照其他工具</h3>
+      <table style="width:100%;font-size:14px;font-family:var(--serif);margin-top:8px;border-collapse:collapse">
+        <tr style="border-bottom:1px solid var(--rule)"><td style="padding:8px 0;color:var(--ink-mute)">代码行数</td><td style="text-align:right;font-family:var(--mono);font-weight:500">~10k</td></tr>
+        <tr style="border-bottom:1px solid var(--rule)"><td style="padding:8px 0;color:var(--ink-mute)">核心工具数</td><td style="text-align:right;font-family:var(--mono);font-weight:500">4</td></tr>
+        <tr style="border-bottom:1px solid var(--rule)"><td style="padding:8px 0;color:var(--ink-mute)">Provider 支持</td><td style="text-align:right;font-family:var(--mono);font-weight:500">所有主流 + 自定义</td></tr>
+        <tr style="border-bottom:1px solid var(--rule)"><td style="padding:8px 0;color:var(--ink-mute)">扩展机制</td><td style="text-align:right;font-family:var(--mono);font-weight:500">npm / git 包</td></tr>
+        <tr><td style="padding:8px 0;color:var(--ink-mute)">作者</td><td style="text-align:right;font-family:var(--mono);font-weight:500">badlogic (1 人)</td></tr>
+      </table>
+    </div>
+  </div>
+  
+  <div class="footnote"><strong>类比：</strong>如果 Claude Code 是 macOS（精致一体），那 Pi 就是 Linux （拼装 + 极简）。如果你写终端工具时被那些大型 agent "吃太多 token 又不让我控制"激怒过，Pi 可能就是你要找的东西。它的设计哲学和 Aider 相通但更激进。</div>
+</section>

@@ -1,0 +1,84 @@
+<section>
+  <div class="section-num">§ 14 · 项目寿命</div>
+  <h2 class="section-title">横向甘特：<em>发布时间轴</em></h2>
+  <p class="section-desc">每个项目从首次发布到现在的活跃期。Aider 是最老的（2023.5 开始），Roo Code 的条形会在 5月15日"断掉"——它停服了。</p>
+  
+  <div class="svg-card">
+    <svg viewBox="0 0 1100 480" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gantt chart of project lifespans">
+      <!-- X axis: months from 2023-Q2 to 2026-Q2 (12 quarters) -->
+      <g font-family="JetBrains Mono" font-size="10" fill="#6b6058">
+        <line x1="180" y1="40" x2="1060" y2="40" stroke="#14110f" stroke-width="1"/>
+        <text x="180" y="28" text-anchor="middle">2023</text>
+        <text x="473" y="28" text-anchor="middle">2024</text>
+        <text x="767" y="28" text-anchor="middle">2025</text>
+        <text x="1060" y="28" text-anchor="middle">2026</text>
+        <!-- Q tick lines -->
+        <line x1="180" y1="36" x2="180" y2="44" stroke="#14110f"/>
+        <line x1="326" y1="36" x2="326" y2="44" stroke="#14110f"/>
+        <line x1="473" y1="36" x2="473" y2="44" stroke="#14110f"/>
+        <line x1="620" y1="36" x2="620" y2="44" stroke="#14110f"/>
+        <line x1="767" y1="36" x2="767" y2="44" stroke="#14110f"/>
+        <line x1="913" y1="36" x2="913" y2="44" stroke="#14110f"/>
+        <line x1="1060" y1="36" x2="1060" y2="44" stroke="#14110f"/>
+      </g>
+      <!-- Project rows -->
+      <g font-family="Source Serif 4" font-weight="500" font-size="13" fill="#14110f">
+        <!-- Aider: 2023-Q2 to now -->
+        <text x="170" y="74" text-anchor="end">Aider</text>
+        <rect x="180" y="62" width="880" height="20" rx="2" fill="#3f6b3a" opacity="0.85"/>
+        <text x="186" y="76" font-family="JetBrains Mono" font-size="10" fill="#fbf8f1">2023.5 → 现役</text>
+        
+        <text x="170" y="102" text-anchor="end">Tabby</text>
+        <rect x="180" y="90" width="880" height="20" rx="2" fill="#3f6b3a" opacity="0.85"/>
+        
+        <text x="170" y="130" text-anchor="end">Open Interpreter</text>
+        <rect x="200" y="118" width="860" height="20" rx="2" fill="#3f6b3a" opacity="0.85"/>
+        
+        <text x="170" y="158" text-anchor="end">OpenHands (OpenDevin)</text>
+        <rect x="380" y="146" width="680" height="20" rx="2" fill="#3f6b3a" opacity="0.85"/>
+        
+        <text x="170" y="186" text-anchor="end">SWE-agent</text>
+        <rect x="400" y="174" width="660" height="20" rx="2" fill="#3f6b3a" opacity="0.85"/>
+        
+        <text x="170" y="214" text-anchor="end">Cline (Claude Dev)</text>
+        <rect x="500" y="202" width="560" height="20" rx="2" fill="#3f6b3a" opacity="0.85"/>
+        
+        <text x="170" y="242" text-anchor="end">Continue</text>
+        <rect x="370" y="230" width="690" height="20" rx="2" fill="#3f6b3a" opacity="0.85"/>
+        
+        <text x="170" y="270" text-anchor="end">Plandex</text>
+        <rect x="600" y="258" width="460" height="20" rx="2" fill="#3f6b3a" opacity="0.85"/>
+        
+        <text x="170" y="298" text-anchor="end">Claude Code</text>
+        <rect x="700" y="286" width="360" height="20" rx="2" fill="#2d4a7c" opacity="0.9"/>
+        
+        <text x="170" y="326" text-anchor="end">Codex CLI</text>
+        <rect x="730" y="314" width="330" height="20" rx="2" fill="#2d4a7c" opacity="0.9"/>
+        
+        <text x="170" y="354" text-anchor="end">Gemini CLI</text>
+        <rect x="770" y="342" width="290" height="20" rx="2" fill="#2d4a7c" opacity="0.9"/>
+        
+        <text x="170" y="382" text-anchor="end">OpenCode</text>
+        <rect x="770" y="370" width="290" height="20" rx="2" fill="#3f6b3a" opacity="0.85"/>
+        
+        <text x="170" y="410" text-anchor="end">Crush · Qwen Code</text>
+        <rect x="840" y="398" width="220" height="20" rx="2" fill="#3f6b3a" opacity="0.85"/>
+        
+        <text x="170" y="438" text-anchor="end">Roo Code</text>
+        <rect x="700" y="426" width="320" height="20" rx="2" fill="#c84630" opacity="0.6"/>
+        <!-- Sunset marker -->
+        <line x1="1020" y1="420" x2="1020" y2="452" stroke="#c84630" stroke-width="2" stroke-dasharray="2 2"/>
+        <text x="1024" y="437" font-family="JetBrains Mono" font-size="9" fill="#c84630">↓ 5/15 停服</text>
+      </g>
+      <!-- Legend -->
+      <g transform="translate(180,468)" font-family="IBM Plex Sans" font-size="11" fill="#3a342f">
+        <rect x="0" y="-8" width="14" height="10" rx="1" fill="#2d4a7c" opacity="0.9"/>
+        <text x="20" y="0">大厂</text>
+        <rect x="70" y="-8" width="14" height="10" rx="1" fill="#3f6b3a" opacity="0.85"/>
+        <text x="90" y="0">独立 / 基金会</text>
+        <rect x="200" y="-8" width="14" height="10" rx="1" fill="#c84630" opacity="0.6"/>
+        <text x="220" y="0">即将停服</text>
+      </g>
+    </svg>
+  </div>
+</section>

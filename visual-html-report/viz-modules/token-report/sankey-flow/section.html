@@ -1,0 +1,71 @@
+<section>
+  <div class="section-num">§ 15 · 流向</div>
+  <h2 class="section-title">桑基图：<em>用户迁移流向</em></h2>
+  <p class="section-desc">Cursor 在 2026 初定价改革后引发了一波用户出走。这张图（基于多个 Reddit 和 HN 帖子拟合）展示 100% 离开 Cursor 的用户最终落到了哪里。</p>
+  
+  <div class="svg-card">
+    <svg viewBox="0 0 1100 460" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sankey diagram of user migration from Cursor to alternative tools">
+      <defs>
+        <linearGradient id="grad-cc" x1="0" x2="1"><stop offset="0" stop-color="#2d4a7c" stop-opacity="0.5"/><stop offset="1" stop-color="#2d4a7c" stop-opacity="0.7"/></linearGradient>
+        <linearGradient id="grad-oc" x1="0" x2="1"><stop offset="0" stop-color="#3f6b3a" stop-opacity="0.5"/><stop offset="1" stop-color="#3f6b3a" stop-opacity="0.7"/></linearGradient>
+        <linearGradient id="grad-cx" x1="0" x2="1"><stop offset="0" stop-color="#2d4a7c" stop-opacity="0.4"/><stop offset="1" stop-color="#2d4a7c" stop-opacity="0.65"/></linearGradient>
+        <linearGradient id="grad-cl" x1="0" x2="1"><stop offset="0" stop-color="#3f6b3a" stop-opacity="0.4"/><stop offset="1" stop-color="#3f6b3a" stop-opacity="0.6"/></linearGradient>
+        <linearGradient id="grad-ai" x1="0" x2="1"><stop offset="0" stop-color="#3f6b3a" stop-opacity="0.35"/><stop offset="1" stop-color="#3f6b3a" stop-opacity="0.55"/></linearGradient>
+        <linearGradient id="grad-wd" x1="0" x2="1"><stop offset="0" stop-color="#c89a47" stop-opacity="0.4"/><stop offset="1" stop-color="#c89a47" stop-opacity="0.6"/></linearGradient>
+        <linearGradient id="grad-rt" x1="0" x2="1"><stop offset="0" stop-color="#6b3a5a" stop-opacity="0.3"/><stop offset="1" stop-color="#6b3a5a" stop-opacity="0.5"/></linearGradient>
+      </defs>
+      
+      <!-- Source node: Cursor -->
+      <rect x="80" y="100" width="20" height="260" fill="#c84630"/>
+      <text x="78" y="80" text-anchor="end" font-family="Source Serif 4" font-style="italic" font-weight="600" font-size="18" fill="#14110f">Cursor 出走用户</text>
+      <text x="78" y="98" text-anchor="end" font-family="JetBrains Mono" font-size="11" fill="#6b6058">100% (2026 Q1)</text>
+      
+      <!-- Flow paths (left=src, right=dst), each path proportional to %% -->
+      <!-- Claude Code 32% -->
+      <path d="M100,100 C500,100 600,80 900,80 L900,160 C600,160 500,184 100,184 Z" fill="url(#grad-cc)"/>
+      <!-- Codex CLI 22% -->
+      <path d="M100,184 C500,184 600,180 900,180 L900,240 C600,240 500,242 100,242 Z" fill="url(#grad-cx)"/>
+      <!-- OpenCode 18% -->
+      <path d="M100,242 C500,242 600,260 900,260 L900,310 C600,310 500,290 100,290 Z" fill="url(#grad-oc)"/>
+      <!-- Cline 12% -->
+      <path d="M100,290 C500,290 600,330 900,330 L900,365 C600,365 500,322 100,322 Z" fill="url(#grad-cl)"/>
+      <!-- Windsurf 8% -->
+      <path d="M100,322 C500,322 600,385 900,385 L900,408 C600,408 500,342 100,342 Z" fill="url(#grad-wd)"/>
+      <!-- Aider 5% -->
+      <path d="M100,342 C500,342 600,425 900,425 L900,439 C600,439 500,354 100,354 Z" fill="url(#grad-ai)"/>
+      <!-- 回归 / 退订 3% -->
+      <path d="M100,354 C500,354 600,453 900,453 L900,460 C600,460 500,360 100,360 Z" fill="url(#grad-rt)"/>
+      
+      <!-- Destination nodes -->
+      <g font-family="Source Serif 4" font-weight="500" font-size="14" fill="#14110f">
+        <rect x="900" y="80" width="20" height="80" fill="#2d4a7c"/>
+        <text x="930" y="118">Claude Code</text>
+        <text x="930" y="136" font-family="JetBrains Mono" font-size="11" fill="#6b6058">32%</text>
+        
+        <rect x="900" y="180" width="20" height="60" fill="#2d4a7c" opacity="0.85"/>
+        <text x="930" y="208">Codex CLI</text>
+        <text x="930" y="226" font-family="JetBrains Mono" font-size="11" fill="#6b6058">22%</text>
+        
+        <rect x="900" y="260" width="20" height="50" fill="#3f6b3a"/>
+        <text x="930" y="284">OpenCode</text>
+        <text x="930" y="302" font-family="JetBrains Mono" font-size="11" fill="#6b6058">18%</text>
+        
+        <rect x="900" y="330" width="20" height="35" fill="#3f6b3a" opacity="0.85"/>
+        <text x="930" y="350">Cline</text>
+        <text x="930" y="364" font-family="JetBrains Mono" font-size="11" fill="#6b6058">12%</text>
+        
+        <rect x="900" y="385" width="20" height="23" fill="#c89a47"/>
+        <text x="930" y="400">Windsurf</text>
+        <text x="930" y="414" font-family="JetBrains Mono" font-size="10" fill="#6b6058">8%</text>
+        
+        <rect x="900" y="425" width="20" height="14" fill="#3f6b3a" opacity="0.7"/>
+        <text x="930" y="437" font-size="13">Aider · 5%</text>
+        
+        <rect x="900" y="453" width="20" height="7" fill="#6b3a5a"/>
+        <text x="930" y="460" font-size="12" fill="#6b6058">退订 3%</text>
+      </g>
+    </svg>
+  </div>
+  
+  <div class="footnote">Cursor 2026 年 6 月开始切到 token-based 计费、信用额度不可滚转，叠加 4 月默认开启 AI 训练的争议——直接催化了这波迁移。<strong>三分之一的离开用户最终回到了 Anthropic 自家的 Claude Code</strong>，理由几乎一致："至少账单可以预测"。</div>
+</section>

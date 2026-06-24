@@ -13,6 +13,7 @@ Search for route definitions:
 | Express/Koa | `app.get(`, `app.post(`, `router.get(`, `router.post(` |
 | FastAPI | `@app.get(`, `@router.post(` |
 | Django | `urlpatterns`, `path(`, `re_path(` |
+| Spring Boot | `@RestController`, `@RequestMapping`, `@GetMapping`, `@PostMapping` |
 | Rails | `config/routes.rb` |
 
 Build a route list with method, path, auth requirement if obvious, and required body if obvious.
@@ -26,6 +27,8 @@ lsof -iTCP -sTCP:LISTEN -n -P
 ```
 
 Do not let a target app inherit another tool's `PORT` unless the project explicitly expects it.
+
+For Spring Boot, confirm `spring.profiles.active` or the startup log before probing. Do not hit a service that is running with `prod` or an unknown datasource.
 
 ## Hit Endpoints
 
@@ -44,7 +47,7 @@ curl -sS -o /tmp/api-smoke.out -w "%{http_code}" \
   -d '{}'
 ```
 
-Avoid state-changing calls against real data unless the endpoint is clearly local/test-only.
+Avoid state-changing calls against real data unless the endpoint is clearly local/test-only. For MySQL-backed services, prefer read-only GET, invalid-body POST validation, or test-only data fixtures.
 
 ## Classify Results
 

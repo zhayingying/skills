@@ -26,7 +26,7 @@ flowchart TD
 | 步骤 | 读取 | 写入 |
 |---|---|---|
 | 建立项目工作区 | `references/workspace-contract.md` | `visual-report-workspace/projects/{project-slug}/` |
-| 整理报告大纲 | `references/report-contract.md` | `content/content.json` |
+| 整理报告大纲 | `references/report-contract.md` | `README.md`、`content/content.json`、`content/sources.json` |
 | 选择风格 | `references/theme-selection.md`、一个 `style-grammar/{slug}.md` | `report.config.json.style` |
 | 选择可视化模块 | `viz-modules/INDEX.md`、仅命中的模块目录 | `report.config.json.modules` |
 | 组装源码包 | `references/output-package.md`、`engines/{engine}/starter.html` | `dist/{report-slug}/` |
@@ -39,3 +39,4 @@ flowchart TD
 - 生成出来的是报告，不是 App。
 - 换风格不等于重写报告，除非布局真的坏了。
 - 不要把多个项目的输入、中间物、报告包混放在同一个 `dist/` 下。
+- 不要只生成 HTML；项目级 README、来源台账和 QA 记录也是交付物的一部分。

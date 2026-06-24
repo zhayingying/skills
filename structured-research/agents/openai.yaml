@@ -1,0 +1,4 @@
+interface:
+  display_name: "结构化调研"
+  short_description: "把任务书转成有证据台账、反思循环、横向比较和反平铺可视化的调研报告"
+  default_prompt: "使用 $structured-research 把这份任务书转成有 Evidence Ledger、Reflect Loop、Comparison First、反平铺可视化和验证记录的调研报告。"

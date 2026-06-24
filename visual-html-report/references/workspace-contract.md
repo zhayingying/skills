@@ -9,12 +9,13 @@ update_time: 2026-05-17 12:56 CST
 
 ## 默认工作区
 
-如果用户没有指定输出位置，在当前工作目录创建：
+如果用户没有指定输出位置，在当前工作目录使用下面的逻辑结构：
 
 ```text
 visual-report-workspace/
 └── projects/
     └── {project-slug}/
+        ├── README.md
         ├── input/
         ├── scratch/
         │   └── {run-id}/
@@ -31,7 +32,9 @@ visual-report-workspace/
             └── {report-slug}/
 ```
 
-如果用户指定了目录，就在该目录下保持同样结构：
+注意：上面的树是产物语义图，不是预创建清单。禁止为了满足结构而创建空目录或 0 字节占位文件；`input/`、`scratch/`、`scratch/{run-id}/fetches/`、`screenshots/`、`extracts/` 必须在写入第一个真实输入、抓取、截图或抽取结果时才创建。
+
+如果用户指定了目录，就在该目录下保持同样语义结构，同样按需创建目录：
 
 ```text
 {workspace-root}/projects/{project-slug}/...
@@ -58,6 +61,14 @@ visual-report-workspace/
 | `content/` | 已整理、可进入报告生成的结构化内容 | `content.json` 是报告生成主输入。 |
 | `dist/{report-slug}/` | 最终 HTML/CSS/JS 报告源码包 | 默认交付这里。 |
 | `qa/{report-slug}/` | 验证截图、控制台记录、多端检查记录 | 每次交付前更新。 |
+| `README.md` | 报告入口、任务材料、来源台账、验证命令和未解决风险 | 项目级手册，不写成营销页。 |
+
+## 空目录规则
+
+- 不要预创建空目录、空文件或 `.keep` 文件。
+- `content/`、`dist/{report-slug}/` 和 `qa/{report-slug}/` 也必须有实际文件后才算有效产物。
+- 如果某次报告没有原始输入落盘，不创建 `input/`；没有临时抓取，不创建 `scratch/`；没有额外模块片段，不创建 `modules/`。
+- README 只能列出实际存在且有内容的目录；不要把未来可能用到但当前为空的目录写成当前交付物。
 
 ## 流程主干
 
@@ -77,6 +88,7 @@ visual-report-workspace/
 - `content/` 是生成报告的事实入口。换风格、换模块时优先复用这里。
 - `dist/` 是交付源码包。不要把生成报告写入 `showroom/`、`engines/`、`viz-modules/`。
 - `qa/` 是验收记录。没有多端检查记录时，不要声称已完成多端适配。
+- `README.md` 是后续维护入口。报告有多个 dist 版本时，README 必须指出当前主入口。
 
 ## 多端适配合同
 

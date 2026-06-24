@@ -85,6 +85,18 @@ visual-report-workspace/projects/{project-slug}/dist/{report-slug}/
 └── modules/
 ```
 
+项目根目录还必须保留可维护材料：
+
+```text
+visual-report-workspace/projects/{project-slug}/
+├── README.md
+├── content/
+│   ├── content.json
+│   └── sources.json 或 evidence-ledger.json
+├── dist/{report-slug}/
+└── qa/{report-slug}/
+```
+
 可选创建：
 
 ```text
@@ -112,6 +124,8 @@ dist/{report-slug}/report.bundled.html
 - 正常使用 skill 生成报告时不要读取 `_maintenance/`。
 - 除非现有脚本无法完成报告，不要新增构建系统。
 - 不要使用装饰性图表；每个可视化模块必须回答一个报告问题。
+- 不要把来源只藏在 HTML 附录里；重大来源必须同步落到 `content/sources.json` 或 `content/evidence-ledger.json`。
+- 不要把 `tools/verify-report.mjs` 的通过误当成某份报告已验收；它主要验证 skill 自身资源，生成报告还要做项目级 QA。
 
 ## 验证
 
@@ -128,3 +142,6 @@ node tools/verify-report.mjs
 - 所有模块脚本只初始化真实存在的 DOM id。
 - desktop / tablet / mobile 三端不横向爆掉，故意横向滚动的宽表除外。
 - `report.config.json` 准确记录风格、引擎、模块和打包状态。
+- `README.md` 说明报告入口、来源台账、验证命令和未解决风险。
+- `content/sources.json` 或 `content/evidence-ledger.json` 覆盖报告中的关键数字、案例和外部来源。
+- `qa/{report-slug}/` 记录截图、控制台错误、链接检查结果和需要人工复核的 403/412/5xx。

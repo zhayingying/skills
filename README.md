@@ -7,6 +7,7 @@
 | Skill | 说明 |
 | --- | --- |
 | [code-tester](./code-tester/) | 本地开发测试编排：识别技术栈、选择测试策略、运行检查与冒烟测试 |
+| [structured-research](./structured-research/) | 把宽泛调研任务或任务书转成有证据台账、反思循环、横向比较和验证记录的问题型调研报告 |
 | [visual-html-report](./visual-html-report/) | 从调研材料生成可维护的可视化 HTML 调研报告 |
 
 ## 安装
@@ -15,6 +16,7 @@
 
 ```bash
 cp -r code-tester ~/.cursor/skills/
+cp -r structured-research ~/.cursor/skills/
 cp -r visual-html-report ~/.cursor/skills/
 ```
 
@@ -22,6 +24,7 @@ cp -r visual-html-report ~/.cursor/skills/
 
 ```bash
 cp -r code-tester ~/.codex/skills/
+cp -r structured-research ~/.codex/skills/
 cp -r visual-html-report ~/.codex/skills/
 ```
 

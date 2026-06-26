@@ -6,7 +6,8 @@
 
 | Skill | 说明 |
 | --- | --- |
-| [code-tester](./code-tester/) | 本地开发测试编排：识别技术栈、选择测试策略、运行检查与冒烟测试 |
+| [testing-init](./testing-init/) | 一次性初始化项目测试体系：探测技术栈、锁定版本、在 `doc/testing/` 交付标准测试文档结构（一个项目通常只跑一次） |
+| [testing-run](./testing-run/) | 按 `doc/testing/` 沉淀的固定 SOP 执行一轮复杂测试：校验指纹漂移、分层执行锁定命令、写时间戳报告（复杂联调/回归时每次用） |
 | [structured-research](./structured-research/) | 把宽泛调研任务或任务书转成有证据台账、反思循环、横向比较和验证记录的问题型调研报告 |
 | [visual-html-report](./visual-html-report/) | 从调研材料生成可维护的可视化 HTML 调研报告 |
 
@@ -15,7 +16,8 @@
 将需要的 skill 目录复制到 Cursor 个人 skills 目录：
 
 ```bash
-cp -r code-tester ~/.cursor/skills/
+cp -r testing-init ~/.cursor/skills/
+cp -r testing-run ~/.cursor/skills/
 cp -r structured-research ~/.cursor/skills/
 cp -r visual-html-report ~/.cursor/skills/
 ```
@@ -23,7 +25,8 @@ cp -r visual-html-report ~/.cursor/skills/
 或在 Codex 环境中：
 
 ```bash
-cp -r code-tester ~/.codex/skills/
+cp -r testing-init ~/.codex/skills/
+cp -r testing-run ~/.codex/skills/
 cp -r structured-research ~/.codex/skills/
 cp -r visual-html-report ~/.codex/skills/
 ```

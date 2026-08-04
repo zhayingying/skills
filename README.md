@@ -10,6 +10,7 @@
 | [testing-run](./testing-run/) | 按 `doc/testing/` 沉淀的固定 SOP 执行一轮复杂测试：校验指纹漂移、分层执行锁定命令、写时间戳报告（复杂联调/回归时每次用） |
 | [structured-research](./structured-research/) | 把宽泛调研任务或任务书转成有证据台账、反思循环、横向比较和验证记录的问题型调研报告 |
 | [visual-html-report](./visual-html-report/) | 从调研材料生成可维护的可视化 HTML 调研报告 |
+| [outlook-archive-invoices](./outlook-archive-invoices/) | 从 Outlook 识别发票、按年月归档，并按目标金额生成一份可回滚的跨月组合 |
 
 ## 安装
 
@@ -20,6 +21,7 @@ cp -r testing-init ~/.cursor/skills/
 cp -r testing-run ~/.cursor/skills/
 cp -r structured-research ~/.cursor/skills/
 cp -r visual-html-report ~/.cursor/skills/
+cp -r outlook-archive-invoices ~/.cursor/skills/
 ```
 
 或在 Codex 环境中：
@@ -29,6 +31,7 @@ cp -r testing-init ~/.codex/skills/
 cp -r testing-run ~/.codex/skills/
 cp -r structured-research ~/.codex/skills/
 cp -r visual-html-report ~/.codex/skills/
+cp -r outlook-archive-invoices ~/.codex/skills/
 ```
 
 ## 结构

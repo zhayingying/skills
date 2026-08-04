@@ -1,0 +1,6 @@
+interface:
+  display_name: "Outlook 发票归档助手"
+  short_description: "从 Outlook 筛选发票并按开票年月归档为 PDF"
+  default_prompt: "使用 $outlook-archive-invoices 扫描我的 Outlook 发票邮件并按规则归档。"
+policy:
+  allow_implicit_invocation: false

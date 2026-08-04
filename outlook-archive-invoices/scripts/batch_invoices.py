@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Plan, apply, or roll back one exact cross-month invoice amount batch."""
+"""Plan, apply, or roll back chronological monthly invoice batches."""
 
 from __future__ import annotations
 
@@ -18,6 +18,7 @@ MAX_SUBSET_STATES = 1_000_000
 MANIFEST_NAME = ".invoice-batch.json"
 YEAR_PATTERN = re.compile(r"^\d{4}$")
 MONTH_PATTERN = re.compile(r"^(0[1-9]|1[0-2])$")
+START_MONTH_PATTERN = re.compile(r"^(?P<year>\d{4})-(?P<month>0[1-9]|1[0-2])$")
 INVOICE_PATTERN = re.compile(
     r"^(?P<month>\d{2})(?P<day>\d{2})-(?P<amount>\d+\.\d{2})¥"
     r"(?:_[0-9a-f]{10})?\.pdf$"
@@ -33,12 +34,21 @@ class Invoice(NamedTuple):
     amount_cents: int
 
 
+class MonthBatch(NamedTuple):
+    """Invoices allocated to one chronological month folder."""
+
+    month_directory: Path
+    selected: tuple[Invoice, ...]
+    total_cents: int
+
+
 class BatchPlan(NamedTuple):
-    """A deterministic global selection ready for preview or application."""
+    """A deterministic multi-month plan ready for preview or application."""
 
     root: Path
+    start_month: str
     target_cents: int
-    selected: tuple[Invoice, ...]
+    months: tuple[MonthBatch, ...]
     total_cents: int
     is_sufficient: bool
 
@@ -57,6 +67,14 @@ def decimal_to_cents(value: str) -> int:
 def cents_text(value: int) -> str:
     """Format cents as a two-decimal amount."""
     return f"{Decimal(value) / Decimal(100):.2f}"
+
+
+def parse_start_month(value: str) -> tuple[str, str]:
+    """Return a strict ``(year, month)`` pair from ``YYYY-MM``."""
+    match = START_MONTH_PATTERN.fullmatch(value)
+    if match is None:
+        raise ValueError("start month must use YYYY-MM")
+    return match.group("year"), match.group("month")
 
 
 def discover_invoices(root: Path) -> tuple[Invoice, ...]:
@@ -101,7 +119,6 @@ def select_invoice_subset(
         return ()
     if sum(invoice.amount_cents for invoice in invoices) < target_cents:
         return invoices
-
     states: dict[int, tuple[int, ...]] = {0: ()}
     for index, invoice in enumerate(invoices):
         additions: dict[int, tuple[int, ...]] = {}
@@ -119,23 +136,46 @@ def select_invoice_subset(
             raise RuntimeError(
                 f"exact selection exceeded {MAX_SUBSET_STATES} subset states"
             )
-
     winning_total = min(total for total in states if total >= target_cents)
     return tuple(invoices[index] for index in states[winning_total])
 
 
-def build_plan(root: Path, target_cents: int) -> BatchPlan:
-    """Build one deterministic batch plan across the entire invoice archive."""
+def build_plan(root: Path, start_month: str, target_cents: int) -> BatchPlan:
+    """Allocate earlier months fully, then optimize the first month able to finish."""
+    if target_cents <= 0:
+        raise ValueError("target must be positive")
+    start_year, start_month_number = parse_start_month(start_month)
+    start_key = f"{start_year}{start_month_number}"
     resolved_root = root.absolute()
-    invoices = discover_invoices(resolved_root)
-    selected = select_invoice_subset(invoices, target_cents)
-    total_cents = sum(invoice.amount_cents for invoice in selected)
+    grouped: dict[Path, list[Invoice]] = {}
+    for invoice in discover_invoices(resolved_root):
+        month_key = f"{invoice.relative_path.parts[0]}{invoice.relative_path.parts[1]}"
+        if month_key >= start_key:
+            grouped.setdefault(invoice.path.parent, []).append(invoice)
+
+    months: list[MonthBatch] = []
+    accumulated_cents = 0
+    for month_directory in sorted(grouped, key=lambda path: str(path.relative_to(resolved_root))):
+        invoices = tuple(grouped[month_directory])
+        remaining_cents = target_cents - accumulated_cents
+        available_cents = sum(invoice.amount_cents for invoice in invoices)
+        selected = (
+            invoices
+            if available_cents < remaining_cents
+            else select_invoice_subset(invoices, remaining_cents)
+        )
+        month_total = sum(invoice.amount_cents for invoice in selected)
+        months.append(MonthBatch(month_directory, selected, month_total))
+        accumulated_cents += month_total
+        if accumulated_cents >= target_cents:
+            break
     return BatchPlan(
         resolved_root,
+        start_month,
         target_cents,
-        selected,
-        total_cents,
-        total_cents >= target_cents,
+        tuple(months),
+        accumulated_cents,
+        accumulated_cents >= target_cents,
     )
 
 
@@ -152,78 +192,107 @@ def plan_dict(plan: BatchPlan) -> dict[str, object]:
     """Return the public machine-readable representation of a plan."""
     return {
         "root": str(plan.root),
+        "start_month": plan.start_month,
         "target": cents_text(plan.target_cents),
         "total": cents_text(plan.total_cents),
         "is_sufficient": plan.is_sufficient,
-        "selected": [str(invoice.relative_path) for invoice in plan.selected],
+        "months": [
+            {
+                "month": str(month.month_directory.relative_to(plan.root)),
+                "total": cents_text(month.total_cents),
+                "selected": [str(invoice.relative_path) for invoice in month.selected],
+            }
+            for month in plan.months
+        ],
     }
 
 
-def apply_plan(plan: BatchPlan) -> Path:
-    """Create one root batch, move selected PDFs, and persist rollback metadata."""
-    if not plan.selected:
-        raise ValueError("no eligible invoices are available")
-    batch_directory = plan.root / f"{cents_text(plan.total_cents)}¥"
-    if batch_directory.exists():
-        raise FileExistsError(f"batch directory already exists: {batch_directory}")
-    for invoice in plan.selected:
-        if not invoice.path.is_file() or invoice.path.resolve() != (
-            plan.root / invoice.relative_path
-        ).resolve():
-            raise FileNotFoundError(f"planned invoice changed before apply: {invoice.path}")
+def batch_manifest(plan: BatchPlan, month: MonthBatch) -> dict[str, object]:
+    """Build the rollback manifest for one monthly folder."""
+    return {
+        "version": 2,
+        "root": str(plan.root),
+        "start_month": plan.start_month,
+        "target": cents_text(plan.target_cents),
+        "month": str(month.month_directory.relative_to(plan.root)),
+        "total": cents_text(month.total_cents),
+        "files": [
+            {
+                "name": invoice.path.name,
+                "source": str(invoice.relative_path),
+                "sha256": sha256(invoice.path),
+            }
+            for invoice in month.selected
+        ],
+    }
 
-    files = [
-        {
-            "name": invoice.path.name,
-            "source": str(invoice.relative_path),
-            "sha256": sha256(invoice.path),
-        }
-        for invoice in plan.selected
-    ]
-    if len({record["name"] for record in files}) != len(files):
-        raise FileExistsError("selected invoices contain duplicate destination names")
-    manifest = {"version": 1, **plan_dict(plan), "files": files}
-    batch_directory.mkdir()
-    manifest_path = batch_directory / MANIFEST_NAME
+
+def apply_plan(plan: BatchPlan) -> tuple[Path, ...]:
+    """Create all monthly folders atomically and move every selected PDF."""
+    if not plan.months:
+        raise ValueError("no eligible invoices are available")
+    operations: list[tuple[MonthBatch, Path, dict[str, object]]] = []
+    for month in plan.months:
+        batch_directory = month.month_directory / f"{cents_text(month.total_cents)}¥"
+        if batch_directory.exists():
+            raise FileExistsError(f"batch directory already exists: {batch_directory}")
+        for invoice in month.selected:
+            if not invoice.path.is_file() or invoice.path.parent != month.month_directory:
+                raise FileNotFoundError(
+                    f"planned invoice changed before apply: {invoice.path}"
+                )
+        operations.append((month, batch_directory, batch_manifest(plan, month)))
+
+    created: list[Path] = []
     moved: list[tuple[Path, Path]] = []
     try:
-        with manifest_path.open("x", encoding="utf-8") as file_handle:
-            json.dump(manifest, file_handle, ensure_ascii=False, indent=2, sort_keys=True)
-            file_handle.flush()
-            os.fsync(file_handle.fileno())
-        for invoice, file_record in zip(plan.selected, files):
-            destination = batch_directory / invoice.path.name
-            invoice.path.rename(destination)
-            moved.append((invoice.path, destination))
-            if sha256(destination) != file_record["sha256"]:
-                raise RuntimeError(f"digest changed after move: {destination}")
+        for month, batch_directory, manifest in operations:
+            batch_directory.mkdir()
+            created.append(batch_directory)
+            manifest_path = batch_directory / MANIFEST_NAME
+            with manifest_path.open("x", encoding="utf-8") as file_handle:
+                json.dump(manifest, file_handle, ensure_ascii=False, indent=2, sort_keys=True)
+                file_handle.flush()
+                os.fsync(file_handle.fileno())
+            file_records = manifest["files"]
+            if not isinstance(file_records, list):
+                raise TypeError("generated manifest files must be a list")
+            for invoice, file_record in zip(month.selected, file_records):
+                if not isinstance(file_record, dict):
+                    raise TypeError("generated manifest file record must be an object")
+                destination = batch_directory / invoice.path.name
+                invoice.path.rename(destination)
+                moved.append((invoice.path, destination))
+                if sha256(destination) != file_record["sha256"]:
+                    raise RuntimeError(f"digest changed after move: {destination}")
     except Exception:
         for source, destination in reversed(moved):
             destination.rename(source)
-        manifest_path.unlink(missing_ok=True)
-        batch_directory.rmdir()
+        for batch_directory in reversed(created):
+            (batch_directory / MANIFEST_NAME).unlink(missing_ok=True)
+            batch_directory.rmdir()
         raise
-    return batch_directory
+    return tuple(operation[1] for operation in operations)
 
 
 def rollback_batch(batch_directory: Path) -> None:
-    """Restore every manifested PDF to its original year/month directory."""
+    """Restore one monthly batch to its original direct-child paths."""
     resolved_batch = batch_directory.resolve()
     manifest_path = resolved_batch / MANIFEST_NAME
     with manifest_path.open(encoding="utf-8") as file_handle:
         manifest = json.load(file_handle)
     root = Path(manifest["root"]).resolve()
-    if resolved_batch.parent != root:
-        raise ValueError("manifest root does not match batch parent")
+    month_directory = root / manifest["month"]
+    if resolved_batch.parent != month_directory.resolve():
+        raise ValueError("manifest month does not match batch parent")
     files = manifest["files"]
     for record in files:
         source = resolved_batch / record["name"]
         destination = root / record["source"]
-        if not source.is_file() or destination.exists() or not destination.parent.is_dir():
+        if not source.is_file() or destination.exists() or destination.parent != month_directory:
             raise RuntimeError(f"rollback precondition failed for: {record['name']}")
         if sha256(source) != record["sha256"]:
             raise RuntimeError(f"rollback digest mismatch: {source}")
-
     moved: list[tuple[Path, Path]] = []
     try:
         for record in files:
@@ -246,6 +315,7 @@ def parse_args() -> argparse.Namespace:
     for command in ("plan", "apply"):
         subparser = subparsers.add_parser(command)
         subparser.add_argument("--root", required=True, type=Path)
+        subparser.add_argument("--start-month", required=True)
         subparser.add_argument("--target", required=True)
     rollback = subparsers.add_parser("rollback")
     rollback.add_argument("--batch-dir", required=True, type=Path)
@@ -259,11 +329,11 @@ def main() -> None:
         rollback_batch(args.batch_dir)
         print(json.dumps({"status": "rolled_back", "batch_dir": str(args.batch_dir)}))
         return
-    plan = build_plan(args.root, decimal_to_cents(args.target))
+    plan = build_plan(args.root, args.start_month, decimal_to_cents(args.target))
     result = plan_dict(plan)
     result["status"] = "planned"
     if args.command == "apply":
-        result["batch_dir"] = str(apply_plan(plan))
+        result["batch_dirs"] = [str(path) for path in apply_plan(plan)]
         result["status"] = "applied"
     print(json.dumps(result, ensure_ascii=False, sort_keys=True))
 

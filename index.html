@@ -274,14 +274,29 @@
       if (stickers && !chars) el.classList.add("sticker-only");
     }
 
+    function splitTextBits(s) {
+      return String(s || "")
+        .split(/[，,、\n]+/)
+        .map((x) => x.replace(/\s+/g, " ").trim())
+        .filter(Boolean);
+    }
+
     function splitHerTalk(text) {
-      return String(text || "")
+      const raw = String(text || "")
         .replace(/[。．]/g, "")
         .replace(/\p{Extended_Pictographic}/gu, "")
-        .replace(/\uFE0F/g, "")
-        .split(/[，,、\n]+/)
-        .map((s) => s.replace(/\s+/g, " ").trim())
-        .filter(Boolean);
+        .replace(/\uFE0F/g, "");
+      const re = /\[\[sticker:[a-zA-Z0-9_-]+\]\]/g;
+      const out = [];
+      let last = 0;
+      let m;
+      while ((m = re.exec(raw))) {
+        out.push(...splitTextBits(raw.slice(last, m.index)));
+        out.push(m[0]);
+        last = m.index + m[0].length;
+      }
+      out.push(...splitTextBits(raw.slice(last)));
+      return out;
     }
 
     function paintHer(firstEl, text, extraEls) {
@@ -349,7 +364,7 @@
         return "- [[sticker:" + s.id + "]] " + (s.name || s.id) + when;
       });
       return [
-        "她会发微信表情包。觉得该发表情时，单独写一行 [[sticker:id]]，不要用文字形容表情。",
+        "她会发微信表情包。觉得该发表情时，单独写一行 [[sticker:id]]，不要和文字挤在同一条，不要用文字形容表情。",
         "一次最多一张。不要连续刷。现有表情：",
         ...lines,
       ].join("\n");
@@ -364,7 +379,7 @@
         "标点和语气跟她一样：什么？！为啥啊 哦哦 我去 不是！ 哇塞 我靠了 好无聊 好累啊",
         "只会说好无聊，不要说无聊死了",
         "不要发 emoji。有表情包就用 [[sticker:id]]，不要用文字形容表情",
-        "随便说一句后面经常再跟一张表情包，单独一行",
+        "随便说一句后面经常再跟一张表情包。表情包必须单独一行 [[sticker:id]]，绝对不要和文字写在同一行",
         "约她出去玩她懒得出来时，只发一张表情包不要文字",
         "问在干嘛不许回答看电视，一般是刷抖音、学习或躺着",
         "开场不要问在吗或在干嘛。页面已经说过我是汪宇涵吖，不要再说",
